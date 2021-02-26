@@ -1,0 +1,10 @@
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\obj\Debug\AbstractShopListImplement.csprojAssemblyReference.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\obj\Debug\AbstractShopListImplement.csproj.CoreCompileInputs.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\bin\Debug\AbstractShopListImplement.dll.config
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\bin\Debug\AbstractShopListImplement.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\bin\Debug\AbstractShopListImplement.pdb
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\bin\Debug\AbstractShopBusinessLogic.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\bin\Debug\AbstractShopBusinessLogic.pdb
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\obj\Debug\AbstractShopListImplement.csproj.CopyComplete
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\obj\Debug\AbstractShopListImplement.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopListImplement\obj\Debug\AbstractShopListImplement.pdb
