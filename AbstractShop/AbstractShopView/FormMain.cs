@@ -1,9 +1,9 @@
-﻿using AbstractShopBusinessLogic.BindingModels;
-using AbstractShopBusinessLogic.BusinessLogic;
+﻿using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.BusinessLogic;
 using System;
 using System.Windows.Forms;
 using Unity;
-namespace AbstractShopView
+namespace LawFirmView
 {
     public partial class FormMain : Form
     {
@@ -39,12 +39,12 @@ namespace AbstractShopView
         }
         private void компонентыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormComponents>();
+            var form = Container.Resolve<FormBlanks>();
             form.ShowDialog();
         }
         private void изделияToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormProducts>();
+            var form = Container.Resolve<FormDocuments>();
             form.ShowDialog();
         }
         private void buttonCreateOrder_Click(object sender, EventArgs e)

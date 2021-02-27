@@ -1,11 +1,11 @@
-﻿using AbstractShopBusinessLogic.BusinessLogic;
-using AbstractShopBusinessLogic.Interfaces;
-using AbstractShopListImplement.Implements;
+﻿using LawFirmBusinessLogic.BusinessLogic;
+using LawFirmBusinessLogic.Interfaces;
+using LawFirmListImplement.Implements;
 using System;
 using System.Windows.Forms;
 using Unity;
 using Unity.Lifetime;
-namespace AbstractShopView
+namespace LawFirmView
 {
     static class Program
     {
@@ -23,16 +23,16 @@ namespace AbstractShopView
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
-            currentContainer.RegisterType<IComponentStorage, ComponentStorage>(new
+            currentContainer.RegisterType<IBlankStorage, BlankStorage>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<IOrderStorage, OrderStorage>(new
            HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IProductStorage, ProductStorage>(new
+            currentContainer.RegisterType<IDocumentStorage, DocumentStorage>(new
            HierarchicalLifetimeManager());
-            currentContainer.RegisterType<ComponentLogic>(new
+            currentContainer.RegisterType<BlankLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<OrderLogic>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<ProductLogic>(new
+            currentContainer.RegisterType<DocumentLogic>(new
            HierarchicalLifetimeManager());
             return currentContainer;
         }

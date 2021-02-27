@@ -1,35 +1,35 @@
-﻿using AbstractShopBusinessLogic.BindingModels;
-using AbstractShopBusinessLogic.BusinessLogic;
-using AbstractShopBusinessLogic.ViewModels;
+﻿using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.BusinessLogic;
+using LawFirmBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Unity;
-namespace AbstractShopView
+namespace LawFirmView
 {
     public partial class FormCreateOrder : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly ProductLogic _logicP;
+        private readonly DocumentLogic _logicD;
         private readonly OrderLogic _logicO;
-        public FormCreateOrder(ProductLogic logicP, OrderLogic logicO)
+        public FormCreateOrder(DocumentLogic logicP, OrderLogic logicO)
         {
             InitializeComponent();
-            _logicP = logicP;
+            _logicD = logicP;
             _logicO = logicO;
         }
         private void FormCreateOrder_Load(object sender, EventArgs e)
         {
             try
             {
-                List<ProductViewModel> list = _logicP.Read(null);
+                List<DocumentViewModel> list = _logicD.Read(null);
                 if (list != null)
                 {
-                    comboBoxProduct.DisplayMember = "ProductName";
-                    comboBoxProduct.ValueMember = "Id";
-                    comboBoxProduct.DataSource = list;
-                    comboBoxProduct.SelectedItem = null;
+                    comboBoxDocument.DisplayMember = "DocumentName";
+                    comboBoxDocument.ValueMember = "Id";
+                    comboBoxDocument.DataSource = list;
+                    comboBoxDocument.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -40,13 +40,13 @@ namespace AbstractShopView
         }
         private void CalcSum()
         {
-            if (comboBoxProduct.SelectedValue != null &&
+            if (comboBoxDocument.SelectedValue != null &&
            !string.IsNullOrEmpty(textBoxCount.Text))
             {
                 try
                 {
-                    int id = Convert.ToInt32(comboBoxProduct.SelectedValue);
-                    ProductViewModel product = _logicP.Read(new ProductBindingModel
+                    int id = Convert.ToInt32(comboBoxDocument.SelectedValue);
+                    DocumentViewModel product = _logicD.Read(new DocumentBindingModel
                     {
                         Id
                     = id
@@ -77,9 +77,9 @@ namespace AbstractShopView
                MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxProduct.SelectedValue == null)
+            if (comboBoxDocument.SelectedValue == null)
             {
-                MessageBox.Show("Выберите изделие", "Ошибка", MessageBoxButtons.OK,
+                MessageBox.Show("Выберите документ", "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
                 return;
             }
@@ -87,7 +87,7 @@ namespace AbstractShopView
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
-                    ProductId = Convert.ToInt32(comboBoxProduct.SelectedValue),
+                    DocumentId = Convert.ToInt32(comboBoxDocument.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AbstractShopView.Properties
+namespace LawFirmView.Properties
 {
 
 

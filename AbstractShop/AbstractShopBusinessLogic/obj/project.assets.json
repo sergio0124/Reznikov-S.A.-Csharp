@@ -185,9 +185,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\AbstractShopBusinessLogic.csproj",
-      "projectName": "AbstractShopBusinessLogic",
-      "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\AbstractShopBusinessLogic.csproj",
+      "projectUniqueName": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\LawFirmBusinessLogic.csproj",
+      "projectName": "LawFirmBusinessLogic",
+      "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\LawFirmBusinessLogic.csproj",
       "packagesPath": "C:\\Users\\Mvideo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\obj\\",
       "projectStyle": "PackageReference",

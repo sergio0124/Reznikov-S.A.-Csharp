@@ -1,14 +1,14 @@
-﻿using AbstractShopBusinessLogic.BindingModels;
-using AbstractShopBusinessLogic.Interfaces;
-using AbstractShopBusinessLogic.ViewModels;
-using AbstractShopListImplement.Models;
+﻿using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.Interfaces;
+using LawFirmBusinessLogic.ViewModels;
+using LawFirmListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbstractShopListImplement.Implements
+namespace LawFirmListImplement.Implements
 {
     public class OrderStorage : IOrderStorage
     {
@@ -38,7 +38,7 @@ namespace AbstractShopListImplement.Implements
             List<OrderViewModel> result = new List<OrderViewModel>();
             foreach (var order in source.Orders)
             {
-                if (order.ProductId == model.ProductId)
+                if (order.DocumentId == model.DocumentId)
                 {
                     result.Add(CreateModel(order));
                 }
@@ -54,8 +54,8 @@ namespace AbstractShopListImplement.Implements
             }
             foreach (var order in source.Orders)
             {
-                if (order.Id == model.Id || order.ProductId ==
-               model.ProductId)
+                if (order.Id == model.Id || order.DocumentId ==
+               model.DocumentId)
                 {
                     return CreateModel(order);
                 }
@@ -111,8 +111,8 @@ namespace AbstractShopListImplement.Implements
 
         private Order CreateModel(OrderBindingModel model, Order order)
         {
-            order.ProductId = model.ProductId;
-            order.ProductName = model.ProductName;
+            order.DocumentId = model.DocumentId;
+            order.DocumentName = model.DocumentName;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -126,8 +126,8 @@ namespace AbstractShopListImplement.Implements
             return new OrderViewModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
-                ProductName = order.ProductName,
+                DocumentId = order.DocumentId,
+                DocumentName = order.DocumentName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,

@@ -1,6 +1,6 @@
-﻿using AbstractShopBusinessLogic.Enums;
+﻿using LawFirmBusinessLogic.Enums;
 using System;
-namespace AbstractShopBusinessLogic.BindingModels
+namespace LawFirmBusinessLogic.BindingModels
 {
     /// <summary>
     /// Заказ
@@ -8,8 +8,8 @@ namespace AbstractShopBusinessLogic.BindingModels
     public class OrderBindingModel
     {
         public int? Id { get; set; }
-        public int ProductId { get; set; }
-        public String ProductName { get; set; }
+        public int DocumentId { get; set; }
+        public String DocumentName { get; set; }
         public int Count { get; set; }
         public decimal Sum { get; set; }
         public OrderStatus Status { get; set; }

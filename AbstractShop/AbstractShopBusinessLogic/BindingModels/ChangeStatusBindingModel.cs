@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbstractShopBusinessLogic.BindingModels
+namespace LawFirmBusinessLogic.BindingModels
 {
     public class ChangeStatusBindingModel
     {

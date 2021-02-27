@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using AbstractShopBusinessLogic.BindingModels;
-using AbstractShopBusinessLogic.Enums;
-using AbstractShopBusinessLogic.Interfaces;
-using AbstractShopBusinessLogic.ViewModels;
+using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.Enums;
+using LawFirmBusinessLogic.Interfaces;
+using LawFirmBusinessLogic.ViewModels;
 using System.Text;
 
-namespace AbstractShopBusinessLogic.BusinessLogic
+namespace LawFirmBusinessLogic.BusinessLogic
 {
     public class OrderLogic
     {
@@ -31,7 +31,7 @@ namespace AbstractShopBusinessLogic.BusinessLogic
         {
             _orderStorage.Insert(new OrderBindingModel
             {
-                ProductId = model.ProductId,
+                DocumentId = model.DocumentId,
                 Count = model.Count,
                 Sum = model.Sum,
                 DateCreate = DateTime.Now,
@@ -56,7 +56,7 @@ namespace AbstractShopBusinessLogic.BusinessLogic
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
+                DocumentId = order.DocumentId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -82,7 +82,7 @@ namespace AbstractShopBusinessLogic.BusinessLogic
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
+                DocumentId = order.DocumentId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -107,8 +107,8 @@ namespace AbstractShopBusinessLogic.BusinessLogic
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
-                ProductName = order.ProductName,
+                DocumentId = order.DocumentId,
+                DocumentName = order.DocumentName,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,

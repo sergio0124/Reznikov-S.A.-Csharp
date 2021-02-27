@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
-using AbstractShopBusinessLogic.Enums;
+using LawFirmBusinessLogic.Enums;
 
-namespace AbstractShopBusinessLogic.ViewModels
+namespace LawFirmBusinessLogic.ViewModels
 {
     public class OrderViewModel
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
+        public int DocumentId { get; set; }
         [DisplayName("Изделие")]
-        public string ProductName { get; set; }
+        public string DocumentName { get; set; }
         [DisplayName("Количество")]
         public int Count { get; set; }
         [DisplayName("Сумма")]

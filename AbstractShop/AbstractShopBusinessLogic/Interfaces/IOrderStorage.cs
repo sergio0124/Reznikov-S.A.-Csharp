@@ -1,10 +1,10 @@
-﻿using AbstractShopBusinessLogic.BindingModels;
-using AbstractShopBusinessLogic.ViewModels;
+﻿using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbstractShopBusinessLogic.Interfaces
+namespace LawFirmBusinessLogic.Interfaces
 {
     public interface IOrderStorage
     {

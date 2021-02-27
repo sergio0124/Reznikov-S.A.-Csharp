@@ -1,4 +1,4 @@
-﻿namespace AbstractShopView
+﻿namespace LawFirmView
 {
     partial class FormMain
     {
@@ -49,7 +49,7 @@
             this.справочникиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,7 +66,7 @@
             // 
             this.компонентыToolStripMenuItem.Name = "компонентыToolStripMenuItem";
             this.компонентыToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.компонентыToolStripMenuItem.Text = "Компоненты";
+            this.компонентыToolStripMenuItem.Text = "Бланки";
             this.компонентыToolStripMenuItem.Click += new System.EventHandler(this.компонентыToolStripMenuItem_Click_1);
             // 
             // изделияToolStripMenuItem
@@ -155,7 +155,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.Text = "Работа с документами";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

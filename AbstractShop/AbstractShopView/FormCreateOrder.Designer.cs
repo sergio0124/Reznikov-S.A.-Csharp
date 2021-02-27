@@ -1,4 +1,4 @@
-﻿namespace AbstractShopView
+﻿namespace LawFirmView
 {
     partial class FormCreateOrder
     {
@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxProduct = new System.Windows.Forms.ComboBox();
+            this.comboBoxDocument = new System.Windows.Forms.ComboBox();
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -65,13 +65,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Сумма: ";
             // 
-            // comboBoxProduct
+            // comboBoxDocument
             // 
-            this.comboBoxProduct.FormattingEnabled = true;
-            this.comboBoxProduct.Location = new System.Drawing.Point(114, 9);
-            this.comboBoxProduct.Name = "comboBoxProduct";
-            this.comboBoxProduct.Size = new System.Drawing.Size(183, 24);
-            this.comboBoxProduct.TabIndex = 3;
+            this.comboBoxDocument.FormattingEnabled = true;
+            this.comboBoxDocument.IntegralHeight = false;
+            this.comboBoxDocument.Location = new System.Drawing.Point(114, 9);
+            this.comboBoxDocument.Name = "comboBoxDocument";
+            this.comboBoxDocument.Size = new System.Drawing.Size(183, 24);
+            this.comboBoxDocument.TabIndex = 3;
             // 
             // textBoxCount
             // 
@@ -116,7 +117,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxSum);
             this.Controls.Add(this.textBoxCount);
-            this.Controls.Add(this.comboBoxProduct);
+            this.Controls.Add(this.comboBoxDocument);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -133,7 +134,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxProduct;
+        private System.Windows.Forms.ComboBox comboBoxDocument;
         private System.Windows.Forms.TextBox textBoxCount;
         private System.Windows.Forms.TextBox textBoxSum;
         private System.Windows.Forms.Button buttonCancel;

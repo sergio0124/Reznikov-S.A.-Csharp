@@ -1,18 +1,18 @@
-﻿using AbstractShopListImplement.Models;
+﻿using LawFirmListImplement.Models;
 using System.Collections.Generic;
-namespace AbstractShopListImplement
+namespace LawFirmListImplement
 {
     public class DataListSingleton
     {
         private static DataListSingleton instance;
-        public List<Component> Components { get; set; }
+        public List<Blank> Blanks { get; set; }
         public List<Order> Orders { get; set; }
-        public List<Product> Products { get; set; }
+        public List<Document> Documents { get; set; }
         private DataListSingleton()
         {
-            Components = new List<Component>();
+            Blanks = new List<Blank>();
             Orders = new List<Order>();
-            Products = new List<Product>();
+            Documents = new List<Document>();
         }
         public static DataListSingleton GetInstance()
         {
