@@ -9,7 +9,7 @@ namespace LawFirmBusinessLogic.BindingModels
     {
         public int? Id { get; set; }
         public int DocumentId { get; set; }
-        public String DocumentName { get; set; }
+        public string DocumentName { get; set; }
         public int Count { get; set; }
         public decimal Sum { get; set; }
         public OrderStatus Status { get; set; }

@@ -83,10 +83,17 @@ namespace LawFirmView
                MessageBoxIcon.Error);
                 return;
             }
+            if (textBoxName.Text == null)
+            {
+                MessageBox.Show("Выберите название", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
+                    DocumentName = textBoxName.Text,
                     DocumentId = Convert.ToInt32(comboBoxDocument.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)

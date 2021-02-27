@@ -31,6 +31,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
         {
             _orderStorage.Insert(new OrderBindingModel
             {
+                DocumentName=model.DocumentName,
                 DocumentId = model.DocumentId,
                 Count = model.Count,
                 Sum = model.Sum,
@@ -56,6 +57,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
+                DocumentName=order.DocumentName,
                 DocumentId = order.DocumentId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -82,6 +84,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
+                DocumentName = order.DocumentName,
                 DocumentId = order.DocumentId,
                 Count = order.Count,
                 Sum = order.Sum,
