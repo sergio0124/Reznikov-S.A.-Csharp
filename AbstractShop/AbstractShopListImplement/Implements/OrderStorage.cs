@@ -114,7 +114,6 @@ namespace LawFirmListImplement.Implements
             order.DocumentId = model.DocumentId;
             order.DocumentName = model.DocumentName;
             order.Count = model.Count;
-            order.Sum = model.Sum;
             order.Status = model.Status;
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
@@ -129,7 +128,6 @@ namespace LawFirmListImplement.Implements
                 DocumentId = order.DocumentId,
                 DocumentName = order.DocumentName,
                 Count = order.Count,
-                Sum = order.Sum,
                 Status = order.Status,
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement

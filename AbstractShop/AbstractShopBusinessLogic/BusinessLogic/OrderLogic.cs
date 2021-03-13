@@ -34,7 +34,6 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 DocumentName=model.DocumentName,
                 DocumentId = model.DocumentId,
                 Count = model.Count,
-                Sum = model.Sum,
                 DateCreate = DateTime.Now,
                 Status = OrderStatus.Принят
             });
@@ -60,7 +59,6 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 DocumentName=order.DocumentName,
                 DocumentId = order.DocumentId,
                 Count = order.Count,
-                Sum = order.Sum,
                 DateCreate = order.DateCreate,
                 DateImplement = DateTime.Now,
                 Status = OrderStatus.Выполняется
@@ -87,7 +85,6 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 DocumentName = order.DocumentName,
                 DocumentId = order.DocumentId,
                 Count = order.Count,
-                Sum = order.Sum,
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement,
                 Status = OrderStatus.Готов
@@ -113,7 +110,6 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 DocumentId = order.DocumentId,
                 DocumentName = order.DocumentName,
                 Count = order.Count,
-                Sum = order.Sum,
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement,
                 Status = OrderStatus.Оплачен
