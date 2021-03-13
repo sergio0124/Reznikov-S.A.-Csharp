@@ -27,3 +27,6 @@ C:\Users\Mvideo\Desktop\4 семестр\Технологии программи
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\LawFirmView.FormDocument.resources
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\LawFirmView.FormDocumentBlank.resources
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\LawFirmView.FormDocuments.resources
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\LawFirmView.FormStorage.resources
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\LawFirmView.FormStorageReplenishment.resources
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\LawFirmView.FormStorages.resources

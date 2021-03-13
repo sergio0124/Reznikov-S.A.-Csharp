@@ -39,6 +39,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\StorageStorage.cs" />
     <Compile Include="Models\Blank.cs" />
     <Compile Include="Implements\BlankStorage.cs" />
     <Compile Include="DataListSingleton.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="Implements\OrderStorage.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Implements\DocumentStorage.cs" />
+    <Compile Include="Models\Storage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbstractShopBusinessLogic\LawFirmBusinessLogic.csproj">
