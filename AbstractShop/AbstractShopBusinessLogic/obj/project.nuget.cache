@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YTYh+yRjsJiBySPsqXv6tNeBjI1n3SLzWe1edlQ38+S3R3LQc2BjZ3wk9PE5jmYvZCc2MjKOvt1ZGVoH0y0rwA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\LawFirmBusinessLogic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

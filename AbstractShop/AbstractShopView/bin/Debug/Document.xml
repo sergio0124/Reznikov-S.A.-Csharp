@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Documents>
+  <Document Id="1">
+    <DocumentName>Document1</DocumentName>
+    <Price>1000</Price>
+    <DocumentBlanks>
+      <DocumentBlank>
+        <Key>1</Key>
+        <Value>1</Value>
+      </DocumentBlank>
+    </DocumentBlanks>
+  </Document>
+  <Document Id="2">
+    <DocumentName>Document2</DocumentName>
+    <Price>1000</Price>
+    <DocumentBlanks>
+      <DocumentBlank>
+        <Key>1</Key>
+        <Value>3</Value>
+      </DocumentBlank>
+    </DocumentBlanks>
+  </Document>
+</Documents>
