@@ -20,7 +20,7 @@ namespace LawFirmView
             InitializeComponent();
             this.logic = service;
         }
-        private void FormProduct_Load(object sender, EventArgs e)
+        private void FormDocument_Load(object sender, EventArgs e)
         {
             if (id.HasValue)
             {

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Orders>
+  <Order Id="1">
+    <DocumentId>1</DocumentId>
+    <DocumentName>Doc1</DocumentName>
+    <Count>3</Count>
+    <DateCreate>2021-03-15T11:22:04.2160209+04:00</DateCreate>
+    <DateImplement>2021-03-15T11:22:10.4322314+04:00</DateImplement>
+    <Status>Выполняется</Status>
+  </Order>
+</Orders>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "k42fCa0pixHL5Actw75WsuVYU48F1McHbnDApnmA/vPz8cliYH5cw7U1n8ah5K8n+JM1ZH9Nn9iYmu+FRQpnqw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmFileImplement\\LawFirmFileImplement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

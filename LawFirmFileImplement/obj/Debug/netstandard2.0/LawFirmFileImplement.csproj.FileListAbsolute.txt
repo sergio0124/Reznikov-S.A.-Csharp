@@ -1,0 +1,15 @@
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\LawFirmFileImplement.deps.json
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\LawFirmFileImplement.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\LawFirmFileImplement.pdb
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\AbstractShopListImplement.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\LawFirmBusinessLogic.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\LawFirmBusinessLogic.pdb
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\AbstractShopListImplement.pdb
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\bin\Debug\netstandard2.0\AbstractShopListImplement.dll.config
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\obj\Debug\netstandard2.0\LawFirmFileImplement.csprojAssemblyReference.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\obj\Debug\netstandard2.0\LawFirmFileImplement.AssemblyInfoInputs.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\obj\Debug\netstandard2.0\LawFirmFileImplement.AssemblyInfo.cs
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\obj\Debug\netstandard2.0\LawFirmFileImplement.csproj.CoreCompileInputs.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\obj\Debug\netstandard2.0\LawFirmFileImplement.csproj.CopyComplete
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\obj\Debug\netstandard2.0\LawFirmFileImplement.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmFileImplement\obj\Debug\netstandard2.0\LawFirmFileImplement.pdb

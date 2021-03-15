@@ -205,7 +205,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormDocument";
             this.Text = "Документ";
-            this.Load += new System.EventHandler(this.FormProduct_Load);
+            this.Load += new System.EventHandler(this.FormDocument_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

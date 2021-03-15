@@ -93,5 +93,10 @@ namespace LawFirmView
         {
             LoadData();
         }
+
+        private void FormDocuments_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }
