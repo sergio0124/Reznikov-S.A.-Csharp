@@ -10,4 +10,18 @@
       </DocumentBlank>
     </DocumentBlanks>
   </Document>
+  <Document Id="3">
+    <DocumentName>Document2</DocumentName>
+    <Price>400</Price>
+    <DocumentBlanks>
+      <DocumentBlank>
+        <Key>1</Key>
+        <Value>1</Value>
+      </DocumentBlank>
+      <DocumentBlank>
+        <Key>2</Key>
+        <Value>1</Value>
+      </DocumentBlank>
+    </DocumentBlanks>
+  </Document>
 </Documents>
