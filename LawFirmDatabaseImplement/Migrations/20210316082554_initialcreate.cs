@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LawFirmDatabaseImplement.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,43 +21,17 @@ namespace LawFirmDatabaseImplement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DocumentId = table.Column<int>(nullable: false),
-                    DocumentName = table.Column<string>(nullable: false),
-                    Count = table.Column<int>(nullable: false),
-                    Sum = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: false),
-                    DateCreate = table.Column<DateTime>(nullable: false),
-                    DateImplement = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Documents",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DocumentName = table.Column<string>(nullable: false),
-                    Price = table.Column<int>(nullable: false),
-                    DocumentId = table.Column<int>(nullable: true)
+                    Price = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Documents", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Documents_Orders_DocumentId",
-                        column: x => x.DocumentId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,6 +61,30 @@ namespace LawFirmDatabaseImplement.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DocumentId = table.Column<int>(nullable: false),
+                    Count = table.Column<int>(nullable: false),
+                    Sum = table.Column<decimal>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    DateCreate = table.Column<DateTime>(nullable: false),
+                    DateImplement = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Documents_DocumentId",
+                        column: x => x.DocumentId,
+                        principalTable: "Documents",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_DocumentBlanks_BlankId",
                 table: "DocumentBlanks",
@@ -98,8 +96,8 @@ namespace LawFirmDatabaseImplement.Migrations
                 column: "DocumentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Documents_DocumentId",
-                table: "Documents",
+                name: "IX_Orders_DocumentId",
+                table: "Orders",
                 column: "DocumentId");
         }
 
@@ -109,13 +107,13 @@ namespace LawFirmDatabaseImplement.Migrations
                 name: "DocumentBlanks");
 
             migrationBuilder.DropTable(
+                name: "Orders");
+
+            migrationBuilder.DropTable(
                 name: "Blanks");
 
             migrationBuilder.DropTable(
                 name: "Documents");
-
-            migrationBuilder.DropTable(
-                name: "Orders");
         }
     }
 }

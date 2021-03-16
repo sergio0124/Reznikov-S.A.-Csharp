@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LawFirmDatabaseImplement.Migrations
 {
     [DbContext(typeof(LawFirmDatabase))]
-    [Migration("20210315090650_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210316082554_initialcreate")]
+    partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,19 +44,14 @@ namespace LawFirmDatabaseImplement.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DocumentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("DocumentName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DocumentId");
 
                     b.ToTable("Documents");
                 });
@@ -99,25 +94,23 @@ namespace LawFirmDatabaseImplement.Migrations
                     b.Property<DateTime>("DateCreate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DateImplement")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("DocumentId")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("Sum")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Sum")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders");
-                });
+                    b.HasIndex("DocumentId");
 
-            modelBuilder.Entity("LawFirmDatabaseImplement.Models.Document", b =>
-                {
-                    b.HasOne("LawFirmDatabaseImplement.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("DocumentId");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("LawFirmDatabaseImplement.Models.DocumentBlank", b =>
@@ -129,7 +122,16 @@ namespace LawFirmDatabaseImplement.Migrations
                         .IsRequired();
 
                     b.HasOne("LawFirmDatabaseImplement.Models.Document", "Document")
-                        .WithMany("DocumentBlank")
+                        .WithMany("DocumentBlanks")
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LawFirmDatabaseImplement.Models.Order", b =>
+                {
+                    b.HasOne("LawFirmDatabaseImplement.Models.Document", "Document")
+                        .WithMany("Order")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

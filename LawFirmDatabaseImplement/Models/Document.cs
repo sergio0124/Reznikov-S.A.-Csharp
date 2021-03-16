@@ -16,6 +16,6 @@ namespace LawFirmDatabaseImplement.Models
         [ForeignKey("DocumentId")]
         public virtual List<DocumentBlank> DocumentBlanks { get; set; }
         [ForeignKey("DocumentId")]
-        public virtual Order Order { get; set; }
+        public virtual List<Order> Order { get; set; }
     }
 }

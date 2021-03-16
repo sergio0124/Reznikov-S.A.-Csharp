@@ -50,8 +50,8 @@ namespace LawFirmDatabaseImplement.Implements
                     DateCreate=order.DateCreate,
                     DateImplement=order.DateImplement,
                     Sum=order.Sum,
-                    DocumentName=order.DocumentName,
-                    DocumentId=order.DocumentId                   
+                    DocumentName = order.Document.DocumentName,
+                    DocumentId =order.DocumentId                   
                 } :
                null;
             }
@@ -66,15 +66,15 @@ namespace LawFirmDatabaseImplement.Implements
             using (var context = new LawFirmDatabase())
             {
                 return context.Orders
-               .Where(rec => rec.DocumentName.Contains(model.DocumentName))
+               .Where(rec => rec.Id==model.Id)
                .ToList()
                .Select(rec => new OrderViewModel
                {
                    Id = rec.Id,
-                   DocumentName = rec.DocumentName,
                    Count = rec.Count,
                    DocumentId = rec.DocumentId,
-                   DateImplement=rec.DateImplement,
+                   DocumentName = rec.Document.DocumentName,
+                   DateImplement =rec.DateImplement,
                    DateCreate=rec.DateCreate,
                    Status=rec.Status,
                    Sum=rec.Sum
@@ -92,9 +92,9 @@ namespace LawFirmDatabaseImplement.Implements
                .Select(rec => new OrderViewModel
                {
                    Id = rec.Id,
-                   DocumentName = rec.DocumentName,
                    Count = rec.Count,
                    DocumentId = rec.DocumentId,
+                   DocumentName=rec.Document.DocumentName,
                    DateImplement = rec.DateImplement,
                    DateCreate = rec.DateCreate,
                    Status = rec.Status,
@@ -128,10 +128,8 @@ namespace LawFirmDatabaseImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order, LawFirmDatabase context)
         {
             order.DocumentId = model.DocumentId;
-            int money = 0;
             Document document = context.Documents.FirstOrDefault(rec => rec.Id == order.DocumentId);
-            money = (int)document.Price * model.Count;
-            order.Sum = money;
+            order.Sum = model.Sum;
             order.Count = model.Count;
             order.Status = model.Status;
             order.DateCreate = model.DateCreate;
