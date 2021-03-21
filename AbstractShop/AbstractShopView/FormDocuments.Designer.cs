@@ -99,6 +99,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Name = "FormDocuments";
             this.Text = "Документы";
+            this.Load += new System.EventHandler(this.FormDocuments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

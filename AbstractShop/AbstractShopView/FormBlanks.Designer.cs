@@ -100,6 +100,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Name = "FormBlanks";
             this.Text = "Бланки";
+            this.Load += new System.EventHandler(this.FormComponents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
