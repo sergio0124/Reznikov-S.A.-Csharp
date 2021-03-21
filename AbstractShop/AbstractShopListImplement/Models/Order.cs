@@ -9,7 +9,7 @@ namespace LawFirmListImplement.Models
     {
         public int Id { get; set; }
         public int DocumentId { get; set; }
-        public String DocumentName { set; get; }
+        public decimal Sum { set; get; }
         public int Count { get; set; }
         public OrderStatus Status { get; set; }
         public DateTime DateCreate { get; set; }
