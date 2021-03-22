@@ -118,5 +118,9 @@ namespace LawFirmView
             LoadData();
         }
 
+        private void бланкиПоДокументамToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -4,6 +4,5 @@ C:\Users\Mvideo\Desktop\4 семестр\Технологии программи
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.csprojAssemblyReference.cache
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.AssemblyInfoInputs.cache
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.AssemblyInfo.cs
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.csproj.CoreCompileInputs.cache
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.dll
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.pdb
