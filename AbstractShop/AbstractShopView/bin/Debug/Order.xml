@@ -2,18 +2,10 @@
 <Orders>
   <Order Id="1">
     <DocumentId>1</DocumentId>
-    <DocumentName>Doc1</DocumentName>
-    <Count>3</Count>
-    <DateCreate>2021-03-15T11:22:04.2160209+04:00</DateCreate>
-    <DateImplement>2021-03-15T11:22:10.4322314+04:00</DateImplement>
-    <Status>Выполняется</Status>
-  </Order>
-  <Order Id="2">
-    <DocumentId>3</DocumentId>
-    <DocumentName>Doc2</DocumentName>
-    <Count>3</Count>
-    <DateCreate>2021-03-16T09:59:02.689671+04:00</DateCreate>
-    <DateImplement>2021-03-16T09:59:07.835484+04:00</DateImplement>
-    <Status>Готов</Status>
+    <Sum>2000</Sum>
+    <Count>1</Count>
+    <DateCreate>2021-03-22T09:44:06.5864074+04:00</DateCreate>
+    <DateImplement>2021-03-22T09:44:11.899439+04:00</DateImplement>
+    <Status>Оплачен</Status>
   </Order>
 </Orders>

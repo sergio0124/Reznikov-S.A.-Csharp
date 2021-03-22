@@ -1,26 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Documents>
   <Document Id="1">
-    <DocumentName>Document1</DocumentName>
-    <Price>1000</Price>
+    <DocumentName>document1</DocumentName>
+    <Price>2000</Price>
     <DocumentBlanks>
       <DocumentBlank>
         <Key>1</Key>
-        <Value>2</Value>
-      </DocumentBlank>
-    </DocumentBlanks>
-  </Document>
-  <Document Id="3">
-    <DocumentName>Document2</DocumentName>
-    <Price>400</Price>
-    <DocumentBlanks>
-      <DocumentBlank>
-        <Key>1</Key>
-        <Value>1</Value>
-      </DocumentBlank>
-      <DocumentBlank>
-        <Key>2</Key>
-        <Value>1</Value>
+        <Value>3</Value>
       </DocumentBlank>
     </DocumentBlanks>
   </Document>

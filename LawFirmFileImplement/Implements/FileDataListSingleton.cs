@@ -89,7 +89,7 @@ namespace LawFirmFileImplement.Implements
                     list.Add(new Order
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        DocumentName = elem.Element("DocumentName").Value,
+                        Sum = Convert.ToInt32(elem.Element("Sum").Value),
                         DocumentId = Convert.ToInt32(elem.Element("DocumentId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
@@ -153,7 +153,7 @@ namespace LawFirmFileImplement.Implements
                     xElement.Add(new XElement("Order",
                     new XAttribute("Id", order.Id),
                     new XElement("DocumentId", order.DocumentId),
-                    new XElement("DocumentName", order.DocumentName),
+                    new XElement("Sum", order.Sum),
                     new XElement("Count", order.Count),
                     new XElement("DateCreate", order.DateCreate),
                     new XElement("DateImplement", order.DateImplement),

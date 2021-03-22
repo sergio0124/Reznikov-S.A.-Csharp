@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Blanks>
   <Blank Id="1">
-    <BlankName>Blank1</BlankName>
-  </Blank>
-  <Blank Id="2">
-    <BlankName>Blank2</BlankName>
+    <BlankName>blank1</BlankName>
   </Blank>
 </Blanks>

@@ -119,7 +119,7 @@ namespace LawFirmFileImplement.Implements
 		private Order CreateModel(OrderBindingModel model, Order order)
 		{
 			order.DocumentId = model.DocumentId;
-			order.DocumentName = model.DocumentName;
+			order.Sum = model.Sum;
 			order.Count = model.Count;
 			order.Status = model.Status;
 			order.DateCreate = model.DateCreate;
@@ -130,16 +130,14 @@ namespace LawFirmFileImplement.Implements
 
 		private OrderViewModel CreateModel(Order order)
 		{
-			decimal money = 0;
-			Document document = source.Documents.FirstOrDefault(rec => rec.Id == order.DocumentId);
-			money = document.Price*order.Count;
+			string documentName = source.Documents.FirstOrDefault(rec => rec.Id == order.DocumentId).DocumentName;
 			return new OrderViewModel
 			{
 				Id = order.Id,
 				DocumentId = order.DocumentId,
-				DocumentName = order.DocumentName,
+				Sum = order.Sum,
 				Count = order.Count,
-				Sum = money,
+				DocumentName = documentName,
 				Status = order.Status,
 				DateCreate = order.DateCreate,
 				DateImplement = order.DateImplement
