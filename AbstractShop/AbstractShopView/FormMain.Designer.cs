@@ -32,16 +32,16 @@
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.компонентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изделияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчётыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокБланковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.бланкиПоДокументамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonTakeOrderInWork = new System.Windows.Forms.Button();
             this.buttonOrderReady = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.отчётыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.списокБланковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.бланкиПоДокументамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.списокЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -70,16 +70,47 @@
             // компонентыToolStripMenuItem
             // 
             this.компонентыToolStripMenuItem.Name = "компонентыToolStripMenuItem";
-            this.компонентыToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.компонентыToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.компонентыToolStripMenuItem.Text = "Бланки";
             this.компонентыToolStripMenuItem.Click += new System.EventHandler(this.компонентыToolStripMenuItem_Click_1);
             // 
             // изделияToolStripMenuItem
             // 
             this.изделияToolStripMenuItem.Name = "изделияToolStripMenuItem";
-            this.изделияToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.изделияToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.изделияToolStripMenuItem.Text = "Изделия";
             this.изделияToolStripMenuItem.Click += new System.EventHandler(this.изделияToolStripMenuItem_Click_1);
+            // 
+            // отчётыToolStripMenuItem
+            // 
+            this.отчётыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.списокБланковToolStripMenuItem,
+            this.бланкиПоДокументамToolStripMenuItem,
+            this.списокЗаказовToolStripMenuItem});
+            this.отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
+            this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.отчётыToolStripMenuItem.Text = "Отчёты";
+            // 
+            // списокБланковToolStripMenuItem
+            // 
+            this.списокБланковToolStripMenuItem.Name = "списокБланковToolStripMenuItem";
+            this.списокБланковToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.списокБланковToolStripMenuItem.Text = "Список бланков";
+            this.списокБланковToolStripMenuItem.Click += new System.EventHandler(this.BlanksToolStripMenuItem_Click);
+            // 
+            // бланкиПоДокументамToolStripMenuItem
+            // 
+            this.бланкиПоДокументамToolStripMenuItem.Name = "бланкиПоДокументамToolStripMenuItem";
+            this.бланкиПоДокументамToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.бланкиПоДокументамToolStripMenuItem.Text = "Бланки по документам";
+            this.бланкиПоДокументамToolStripMenuItem.Click += new System.EventHandler(this.BlanksDocumentsToolStripMenuItem_Click);
+            // 
+            // списокЗаказовToolStripMenuItem
+            // 
+            this.списокЗаказовToolStripMenuItem.Name = "списокЗаказовToolStripMenuItem";
+            this.списокЗаказовToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.списокЗаказовToolStripMenuItem.Text = "Список заказов";
+            this.списокЗаказовToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // buttonCreateOrder
             // 
@@ -145,35 +176,6 @@
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.Size = new System.Drawing.Size(783, 241);
             this.dataGridView.TabIndex = 7;
-            // 
-            // отчётыToolStripMenuItem
-            // 
-            this.отчётыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.списокБланковToolStripMenuItem,
-            this.бланкиПоДокументамToolStripMenuItem,
-            this.списокЗаказовToolStripMenuItem});
-            this.отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
-            this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.отчётыToolStripMenuItem.Text = "Отчёты";
-            // 
-            // списокБланковToolStripMenuItem
-            // 
-            this.списокБланковToolStripMenuItem.Name = "списокБланковToolStripMenuItem";
-            this.списокБланковToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.списокБланковToolStripMenuItem.Text = "Список бланков";
-            // 
-            // бланкиПоДокументамToolStripMenuItem
-            // 
-            this.бланкиПоДокументамToolStripMenuItem.Name = "бланкиПоДокументамToolStripMenuItem";
-            this.бланкиПоДокументамToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.бланкиПоДокументамToolStripMenuItem.Text = "Бланки по документам";
-            this.бланкиПоДокументамToolStripMenuItem.Click += new System.EventHandler(this.бланкиПоДокументамToolStripMenuItem_Click);
-            // 
-            // списокЗаказовToolStripMenuItem
-            // 
-            this.списокЗаказовToolStripMenuItem.Name = "списокЗаказовToolStripMenuItem";
-            this.списокЗаказовToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.списокЗаказовToolStripMenuItem.Text = "Список заказов";
             // 
             // FormMain
             // 

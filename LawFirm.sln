@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawFirmView", "AbstractShop\AbstractShopView\LawFirmView.csproj", "{547D2686-5120-4B19-8923-E3BCDE34F873}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawFirmBusinessLogic", "AbstractShop\AbstractShopBusinessLogic\LawFirmBusinessLogic.csproj", "{D4F3570B-B363-43B5-BA1C-7FA9A57343FC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawFirmListImplement", "AbstractShop\AbstractShopListImplement\LawFirmListImplement.csproj", "{9D4DD96C-2DF2-4AE9-8D2D-2ED10FD629AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawFirmFileImplement", "LawFirmFileImplement\LawFirmFileImplement.csproj", "{D7F691D1-D2DD-4FCD-8C77-D2D9C05A36DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawFirmFileImplement", "LawFirmFileImplement\LawFirmFileImplement.csproj", "{D7F691D1-D2DD-4FCD-8C77-D2D9C05A36DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawFirmDatabaseImplement", "LawFirmDatabaseImplement\LawFirmDatabaseImplement.csproj", "{0852DCCC-6C8C-44BD-8CD6-0A295A7251A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawFirmDatabaseImplement", "LawFirmDatabaseImplement\LawFirmDatabaseImplement.csproj", "{0852DCCC-6C8C-44BD-8CD6-0A295A7251A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawFirmBusinessLogic", "LawFirmBusinessLogic\LawFirmBusinessLogic.csproj", "{376D5C68-63B2-4DBE-AEC9-B1537224796A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{547D2686-5120-4B19-8923-E3BCDE34F873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{547D2686-5120-4B19-8923-E3BCDE34F873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{547D2686-5120-4B19-8923-E3BCDE34F873}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4F3570B-B363-43B5-BA1C-7FA9A57343FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4F3570B-B363-43B5-BA1C-7FA9A57343FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4F3570B-B363-43B5-BA1C-7FA9A57343FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4F3570B-B363-43B5-BA1C-7FA9A57343FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D4DD96C-2DF2-4AE9-8D2D-2ED10FD629AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D4DD96C-2DF2-4AE9-8D2D-2ED10FD629AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D4DD96C-2DF2-4AE9-8D2D-2ED10FD629AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{0852DCCC-6C8C-44BD-8CD6-0A295A7251A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0852DCCC-6C8C-44BD-8CD6-0A295A7251A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0852DCCC-6C8C-44BD-8CD6-0A295A7251A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{376D5C68-63B2-4DBE-AEC9-B1537224796A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376D5C68-63B2-4DBE-AEC9-B1537224796A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376D5C68-63B2-4DBE-AEC9-B1537224796A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{376D5C68-63B2-4DBE-AEC9-B1537224796A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

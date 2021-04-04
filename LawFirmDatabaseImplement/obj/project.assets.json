@@ -6338,8 +6338,8 @@
     },
     "LawFirmBusinessLogic/1.0.0": {
       "type": "project",
-      "path": "../AbstractShop/AbstractShopBusinessLogic/LawFirmBusinessLogic.csproj",
-      "msbuildProject": "../AbstractShop/AbstractShopBusinessLogic/LawFirmBusinessLogic.csproj"
+      "path": "../LawFirmBusinessLogic/LawFirmBusinessLogic.csproj",
+      "msbuildProject": "../LawFirmBusinessLogic/LawFirmBusinessLogic.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6380,9 +6380,10 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\LawFirmBusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\LawFirmBusinessLogic.csproj"
+            "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmBusinessLogic\\LawFirmBusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmBusinessLogic\\LawFirmBusinessLogic.csproj"
             }
           }
         }
@@ -6395,6 +6396,7 @@
     },
     "frameworks": {
       "netstandard2.0": {
+        "targetAlias": "netstandard2.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -6427,7 +6429,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -48,8 +48,8 @@
     <Compile Include="Implements\DocumentStorage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AbstractShopBusinessLogic\LawFirmBusinessLogic.csproj">
-      <Project>{d4f3570b-b363-43b5-ba1c-7fa9a57343fc}</Project>
+    <ProjectReference Include="..\..\LawFirmBusinessLogic\LawFirmBusinessLogic.csproj">
+      <Project>{376d5c68-63b2-4dbe-aec9-b1537224796a}</Project>
       <Name>LawFirmBusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace AbstractShopView
+﻿namespace LawFirmView
 {
     partial class FormReportDocumentBlanks
     {
@@ -91,6 +91,7 @@
             this.Controls.Add(this.buttonSaveExcel);
             this.Name = "FormReportDocumentBlanks";
             this.Text = "FormReportDocumentBlanks";
+            this.Load += new System.EventHandler(this.FormReportDocumentBlanks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

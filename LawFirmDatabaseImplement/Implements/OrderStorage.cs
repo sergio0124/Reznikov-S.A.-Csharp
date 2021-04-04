@@ -12,123 +12,118 @@ namespace LawFirmDatabaseImplement.Implements
 {
     public class OrderStorage : IOrderStorage
     {
-        public void Delete(OrderBindingModel model)
+        public List<OrderViewModel> GetFullList()
         {
             using (var context = new LawFirmDatabase())
             {
-                Order element = context.Orders.FirstOrDefault(rec => rec.Id ==
-               model.Id);
-                if (element != null)
-                {
-                    context.Orders.Remove(element);
-                    context.SaveChanges();
-                }
-                else
-                {
-                    throw new Exception("Элемент не найден");
-                }
+                return context.Orders
+                    .Select(rec => new OrderViewModel
+                    {
+                        Id = rec.Id,
+                        DocumentName = rec.Document.DocumentName,
+                        DocumentId = rec.DocumentId,
+                        Count = rec.Count,
+                        Sum = rec.Sum,
+                        Status = rec.Status,
+                        DateCreate = rec.DateCreate,
+                        DateImplement = rec.DateImplement
+                    })
+                    .ToList();
             }
         }
-
-        public OrderViewModel GetElement(OrderBindingModel model)
-        {
-            if (model == null)
-            {
-                return null;
-            }
-            using (var context = new LawFirmDatabase())
-            {
-                var order = context.Orders
-               .FirstOrDefault(rec => rec.Id
-               == model.Id);
-                return order != null ?
-                new OrderViewModel
-                {
-                    Id = order.Id,
-                    Count = order.Count,
-                    Status=order.Status,
-                    DateCreate=order.DateCreate,
-                    DateImplement=order.DateImplement,
-                    Sum=order.Sum,
-                    DocumentName = order.Document.DocumentName,
-                    DocumentId =order.DocumentId                   
-                } :
-               null;
-            }
-        }
-
         public List<OrderViewModel> GetFilteredList(OrderBindingModel model)
         {
             if (model == null)
             {
                 return null;
             }
+
             using (var context = new LawFirmDatabase())
             {
                 return context.Orders
-               .Where(rec => rec.Id==model.Id)
-               .ToList()
-               .Select(rec => new OrderViewModel
-               {
-                   Id = rec.Id,
-                   Count = rec.Count,
-                   DocumentId = rec.DocumentId,
-                   DocumentName = rec.Document.DocumentName,
-                   DateImplement =rec.DateImplement,
-                   DateCreate=rec.DateCreate,
-                   Status=rec.Status,
-                   Sum=rec.Sum
-               })
-               .ToList();
+                    .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+                .Select(rec => new OrderViewModel
+                {
+                    Id = rec.Id,
+                    DocumentName = rec.Document.DocumentName,
+                    DocumentId = rec.DocumentId,
+                    Count = rec.Count,
+                    Sum = rec.Sum,
+                    Status = rec.Status,
+                    DateCreate = rec.DateCreate,
+                    DateImplement = rec.DateImplement
+                })
+                    .ToList();
             }
         }
-
-        public List<OrderViewModel> GetFullList()
+        public OrderViewModel GetElement(OrderBindingModel model)
         {
+            if (model == null)
+            {
+                return null;
+            }
+
             using (var context = new LawFirmDatabase())
             {
-                return context.Orders
-               .ToList()
-               .Select(rec => new OrderViewModel
-               {
-                   Id = rec.Id,
-                   Count = rec.Count,
-                   DocumentId = rec.DocumentId,
-                   DocumentName=rec.Document.DocumentName,
-                   DateImplement = rec.DateImplement,
-                   DateCreate = rec.DateCreate,
-                   Status = rec.Status,
-                   Sum = rec.Sum
-               })
-               .ToList();
+                var order = context.Orders
+                    .FirstOrDefault(rec => rec.Id == model.Id);
+
+                return order != null ?
+                    new OrderViewModel
+                    {
+                        Id = order.Id,
+                        DocumentName = context.Documents.FirstOrDefault(rec => rec.Id == order.DocumentId)?.DocumentName,
+                        DocumentId = order.DocumentId,
+                        Count = order.Count,
+                        Sum = order.Sum,
+                        Status = order.Status,
+                        DateCreate = order.DateCreate,
+                        DateImplement = order.DateImplement
+                    } :
+                    null;
             }
         }
-
         public void Insert(OrderBindingModel model)
         {
             using (var context = new LawFirmDatabase())
             {
-                using (var transaction = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        context.Orders.Add(CreateModel(model, new Order(), context));
-                        context.SaveChanges();
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
+                context.Orders.Add(CreateModel(model, new Order()));
+                context.SaveChanges();
             }
         }
+        public void Update(OrderBindingModel model)
+        {
+            using (var context = new LawFirmDatabase())
+            {
+                var order = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
 
-        private Order CreateModel(OrderBindingModel model, Order order, LawFirmDatabase context)
+                if (order == null)
+                {
+                    throw new Exception("Заказ не найден");
+                }
+
+                CreateModel(model, order);
+                context.SaveChanges();
+            }
+        }
+        public void Delete(OrderBindingModel model)
+        {
+            using (var context = new LawFirmDatabase())
+            {
+                var order = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
+
+                if (order == null)
+                {
+                    throw new Exception("Заказ не найден");
+                }
+
+                context.Orders.Remove(order);
+                context.SaveChanges();
+            }
+        }
+        private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.DocumentId = model.DocumentId;
-            Document document = context.Documents.FirstOrDefault(rec => rec.Id == order.DocumentId);
             order.Sum = model.Sum;
             order.Count = model.Count;
             order.Status = model.Status;
@@ -138,19 +133,5 @@ namespace LawFirmDatabaseImplement.Implements
             return order;
         }
 
-        public void Update(OrderBindingModel model)
-        {
-            using (var context = new LawFirmDatabase())
-            {
-                var element = context.Orders.FirstOrDefault(rec => rec.Id ==
-               model.Id);
-                if (element == null)
-                {
-                    throw new Exception("Элемент не найден");
-                }
-                CreateModel(model, element, context);
-                context.SaveChanges();
-            }
-        }
     }
 }

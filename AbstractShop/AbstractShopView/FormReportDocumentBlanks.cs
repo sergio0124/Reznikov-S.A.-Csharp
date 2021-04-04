@@ -4,7 +4,7 @@ using System;
 using System.Windows.Forms;
 using Unity;
 
-namespace AbstractShopView
+namespace LawFirmView
 {
     public partial class FormReportDocumentBlanks : Form
     {

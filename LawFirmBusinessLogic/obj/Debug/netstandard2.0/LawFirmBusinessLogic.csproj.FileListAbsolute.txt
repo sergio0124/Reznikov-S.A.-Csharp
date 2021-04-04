@@ -1,0 +1,9 @@
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.csprojAssemblyReference.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.AssemblyInfo.cs
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\bin\Debug\netstandard2.0\LawFirmBusinessLogic.deps.json
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\bin\Debug\netstandard2.0\LawFirmBusinessLogic.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\bin\Debug\netstandard2.0\LawFirmBusinessLogic.pdb
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.dll
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\LawFirmBusinessLogic\obj\Debug\netstandard2.0\LawFirmBusinessLogic.pdb
