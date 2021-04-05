@@ -111,6 +111,7 @@ namespace LawFirmView
             this.reportViewer.ServerReport.BearerToken = null;
             this.reportViewer.Size = new System.Drawing.Size(1001, 370);
             this.reportViewer.TabIndex = 7;
+            this.reportViewer.LocalReport.EnableExternalImages = true;
             this.reportViewer.Load += new System.EventHandler(this.FormReportOrders_Load);
             // 
             // FormReportOrders

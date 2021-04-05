@@ -98,6 +98,15 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
+                        ColumnName = "B",
+                        RowIndex = rowIndex,
+                        Text = "Итого",
+                        StyleIndex = 0U
+                    });
+                    InsertCellInWorksheet(new ExcelCellParameters
+                    {
+                        Worksheet = worksheetPart.Worksheet,
+                        ShareStringPart = shareStringPart,
                         ColumnName = "C",
                         RowIndex = rowIndex,
                         Text = pc.TotalCount.ToString(),

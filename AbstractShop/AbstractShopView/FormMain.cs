@@ -127,7 +127,7 @@ namespace LawFirmView
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    _reportLogic.SaveBlanksToWordFile(new ReportBindingModel
+                    _reportLogic.SaveDocumentsToWordFile(new ReportBindingModel
                     {
                         FileName =
                    dialog.FileName

@@ -9,6 +9,6 @@ namespace LawFirmBusinessLogic.HelperModels
     {
         public string FileName { get; set; }
         public string Title { get; set; }
-        public List<BlankViewModel> Blanks { get; set; }
+        public List<DocumentViewModel> Documents { get; set; }
     }
 }

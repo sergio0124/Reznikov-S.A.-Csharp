@@ -95,7 +95,7 @@
             // 
             this.списокБланковToolStripMenuItem.Name = "списокБланковToolStripMenuItem";
             this.списокБланковToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.списокБланковToolStripMenuItem.Text = "Список бланков";
+            this.списокБланковToolStripMenuItem.Text = "Список документов";
             this.списокБланковToolStripMenuItem.Click += new System.EventHandler(this.BlanksToolStripMenuItem_Click);
             // 
             // бланкиПоДокументамToolStripMenuItem

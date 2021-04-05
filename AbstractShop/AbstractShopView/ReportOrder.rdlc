@@ -102,7 +102,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.17856cm</Top>
+            <Top>1.36003cm</Top>
+            <Left>0.00467cm</Left>
             <Height>1.12917cm</Height>
             <Width>16.51cm</Width>
             <ZIndex>1</ZIndex>
@@ -468,7 +469,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetOrders</DataSetName>
-            <Top>2.59503cm</Top>
+            <Top>3.03953cm</Top>
             <Left>1.13453cm</Left>
             <Height>1.41166cm</Height>
             <Width>14.23246cm</Width>
@@ -549,6 +550,7 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <BackgroundColor>White</BackgroundColor>
         </Style>
       </Body>
       <Width>6.50184in</Width>

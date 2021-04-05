@@ -24,24 +24,24 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 docBody.AppendChild(CreateParagraph(new WordParagraph
                 {
                     Texts = new List<(string, WordTextProperties)> { (info.Title, new
-WordTextProperties {Bold = true, Size = "24", } ) },
+WordTextProperties {Bold = true, Size = "36", } ) },
                     TextProperties = new WordTextProperties
                     {
-                        Size = "24",
+                        Size = "36",
                         JustificationValues = JustificationValues.Center
                     }
                 }));
-                foreach (var blank in info.Blanks)
+                foreach (var document in info.Documents)
                 {
                     docBody.AppendChild(CreateParagraph(new WordParagraph
                     {
-                        Texts = new List<(string, WordTextProperties)> {
-(blank.BlankName, new WordTextProperties { Size = "24", }) },
+                        Texts = new List<(string, WordTextProperties)> { ($"{document.DocumentName}: ", new WordTextProperties { Bold=true,Size = "24"}), 
+                            (document.Price.ToString(), new WordTextProperties { Size = "24" }) },
                         TextProperties = new WordTextProperties
- {
- Size = "24",
- JustificationValues = JustificationValues.Both
- }
+                        {
+                            Size = "24",
+                            JustificationValues = JustificationValues.Both
+                        }
                     }));
                 }
                 docBody.AppendChild(CreateSectionProperties());
@@ -94,8 +94,8 @@ WordTextProperties {Bold = true, Size = "24", } ) },
                 }
                 return docParagraph;
             }
-            
-        return null;
+
+            return null;
         }
         /// <summary>
         /// Задание форматирования для абзаца

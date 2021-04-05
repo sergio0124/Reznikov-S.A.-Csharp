@@ -79,13 +79,13 @@ namespace LawFirmBusinessLogic.BusinessLogic
         /// Сохранение компонент в файл-Word
         /// </summary>
         /// <param name="model"></param>
-        public void SaveBlanksToWordFile(ReportBindingModel model)
+        public void SaveDocumentsToWordFile(ReportBindingModel model)
         {
             SaveToWord.CreateDoc(new WordInfo
             {
                 FileName = model.FileName,
-                Title = "Список бланков",
-                Blanks = _blankStorage.GetFullList()
+                Title = "Список документов",
+                Documents = _documentStorage.GetFullList()
             });
         }
         /// <summary>
