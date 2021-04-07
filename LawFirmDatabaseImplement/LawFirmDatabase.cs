@@ -18,6 +18,7 @@ namespace LawFirmDatabaseImplement
         }
         public virtual DbSet<Blank> Blanks { set; get; }
         public virtual DbSet<Document> Documents { set; get; }
+        public virtual DbSet<Client> Clients { set; get; }
         public virtual DbSet<DocumentBlank> DocumentBlanks { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
 

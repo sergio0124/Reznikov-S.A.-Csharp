@@ -20,5 +20,7 @@ namespace LawFirmDatabaseImplement.Models
         public DateTime DateCreate { set; get; }
         public DateTime? DateImplement { get; set; }
         public virtual Document Document { set; get; }
+        [ForeignKey("OrderId")]
+        public virtual Client Client { set; get; }
     }
 }

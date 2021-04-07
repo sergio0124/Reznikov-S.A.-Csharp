@@ -40,7 +40,6 @@ namespace LawFirmDatabaseImplement.Implements
 				return null;
 			}
 
-
 			using (var context = new LawFirmDatabase())
 			{
 				return context.Documents

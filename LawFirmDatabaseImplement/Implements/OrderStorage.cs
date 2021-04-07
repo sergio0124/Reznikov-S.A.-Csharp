@@ -26,7 +26,8 @@ namespace LawFirmDatabaseImplement.Implements
                         Sum = rec.Sum,
                         Status = rec.Status,
                         DateCreate = rec.DateCreate,
-                        DateImplement = rec.DateImplement
+                        DateImplement = rec.DateImplement,
+                        ClientId=rec.Client.Id
                     })
                     .ToList();
             }
@@ -51,7 +52,8 @@ namespace LawFirmDatabaseImplement.Implements
                     Sum = rec.Sum,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement
+                    DateImplement = rec.DateImplement,
+                    ClientId = rec.Client.Id
                 })
                     .ToList();
             }

@@ -12,6 +12,8 @@ namespace LawFirmBusinessLogic.ViewModels
         public DateTime DateCreate { get; set; }
         [DisplayName("Имя документа")]
         public string DocumentName { get; set; }
+        [DisplayName("Имя клиента")]
+        public string ClientName { get; set; }
         [DisplayName("Количество")]
         public int Count { get; set; }
         [DisplayName("Цена")]
