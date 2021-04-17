@@ -10,11 +10,11 @@ namespace LawFirmDatabaseImplement.Models
     {
         public int Id { set; get; }
         [Required]
-        public string ClientName { get; set; }
+        public string ClientFIO { get; set; }
         [Required]
         public string Password { set; get; }
         [Required]
         public string Email { set; get; }
-        public int OrderId { set; get; }
+        public virtual List<Order> Orders { set; get; }
     }
 }

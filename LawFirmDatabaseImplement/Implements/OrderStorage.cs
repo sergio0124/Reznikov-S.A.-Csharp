@@ -22,12 +22,13 @@ namespace LawFirmDatabaseImplement.Implements
                         Id = rec.Id,
                         DocumentName = rec.Document.DocumentName,
                         DocumentId = rec.DocumentId,
+                        ClientFIO=rec.Client.ClientFIO,
                         Count = rec.Count,
                         Sum = rec.Sum,
                         Status = rec.Status,
                         DateCreate = rec.DateCreate,
                         DateImplement = rec.DateImplement,
-                        ClientId=rec.Client.Id
+                        ClientId=rec.ClientId
                     })
                     .ToList();
             }
@@ -47,13 +48,14 @@ namespace LawFirmDatabaseImplement.Implements
                 {
                     Id = rec.Id,
                     DocumentName = rec.Document.DocumentName,
+                    ClientFIO=rec.Client.ClientFIO,
                     DocumentId = rec.DocumentId,
                     Count = rec.Count,
                     Sum = rec.Sum,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
                     DateImplement = rec.DateImplement,
-                    ClientId = rec.Client.Id
+                    ClientId = rec.ClientId
                 })
                     .ToList();
             }
@@ -74,8 +76,10 @@ namespace LawFirmDatabaseImplement.Implements
                     new OrderViewModel
                     {
                         Id = order.Id,
-                        DocumentName = context.Documents.FirstOrDefault(rec => rec.Id == order.DocumentId)?.DocumentName,
+                        DocumentName=order.Document?.DocumentName,
                         DocumentId = order.DocumentId,
+                        ClientFIO=order.Client?.ClientFIO,
+                        ClientId=order.ClientId,
                         Count = order.Count,
                         Sum = order.Sum,
                         Status = order.Status,
@@ -126,6 +130,7 @@ namespace LawFirmDatabaseImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.DocumentId = model.DocumentId;
+            order.ClientId = (int)model.ClientId;
             order.Sum = model.Sum;
             order.Count = model.Count;
             order.Status = model.Status;

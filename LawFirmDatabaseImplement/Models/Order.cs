@@ -11,6 +11,8 @@ namespace LawFirmDatabaseImplement.Models
         [Required]
         public int DocumentId { set; get; }
         [Required]
+        public int ClientId { set; get; }
+        [Required]
         public int Count { set; get; }
         [Required]
         public decimal Sum { set; get; }

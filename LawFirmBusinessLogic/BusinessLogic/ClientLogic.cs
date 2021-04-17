@@ -32,7 +32,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
         {
             var element = _clientStorage.GetElement(new ClientBindingModel
             {
-                ClientName = model.ClientName
+                ClientFIO = model.ClientFIO
             });
             if (element != null && element.Id != model.Id)
             {

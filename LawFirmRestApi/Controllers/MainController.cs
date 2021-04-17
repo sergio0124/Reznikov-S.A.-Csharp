@@ -20,9 +20,9 @@ namespace AbstractShopRestApi.Controllers
             _main = main;
         }
         [HttpGet]
-        public List<DocumentViewModel> GetProductList() => _document.Read(null)?.ToList();
+        public List<DocumentViewModel> GetDocumentList() => _document.Read(null)?.ToList();
         [HttpGet]
-        public DocumentViewModel GetProduct(int productId) => _document.Read(new DocumentBindingModel
+        public DocumentViewModel GetDocument(int productId) => _document.Read(new DocumentBindingModel
         { Id = productId })?[0];
         [HttpGet]
         public List<OrderViewModel> GetOrders(int clientId) => _order.Read(new

@@ -18,7 +18,7 @@ namespace LawFirmBusinessLogic.ViewModels
         public int DocumentId { get; set; }
         [DataMember]
         [DisplayName("Клиент")]
-        public string ClientName { get; set; }
+        public string ClientFIO { get; set; }
         [DataMember]
         [DisplayName("Изделие")]
         public string DocumentName { get; set; }

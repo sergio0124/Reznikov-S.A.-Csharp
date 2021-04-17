@@ -35,6 +35,33 @@ namespace LawFirmDatabaseImplement.Migrations
                     b.ToTable("Blanks");
                 });
 
+            modelBuilder.Entity("LawFirmDatabaseImplement.Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
+                });
+
             modelBuilder.Entity("LawFirmDatabaseImplement.Models.Document", b =>
                 {
                     b.Property<int>("Id")
@@ -98,6 +125,9 @@ namespace LawFirmDatabaseImplement.Migrations
                     b.Property<int>("DocumentId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -107,6 +137,8 @@ namespace LawFirmDatabaseImplement.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DocumentId");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("Orders");
                 });
@@ -133,6 +165,10 @@ namespace LawFirmDatabaseImplement.Migrations
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("LawFirmDatabaseImplement.Models.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("OrderId");
                 });
 #pragma warning restore 612, 618
         }

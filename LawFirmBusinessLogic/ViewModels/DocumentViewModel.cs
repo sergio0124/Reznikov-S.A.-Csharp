@@ -6,6 +6,7 @@ using System.Text;
 
 namespace LawFirmBusinessLogic.ViewModels
 {
+    [DataContract]
     public class DocumentViewModel
     {
         [DataMember]

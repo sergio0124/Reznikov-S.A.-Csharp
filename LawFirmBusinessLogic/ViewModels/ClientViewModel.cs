@@ -11,11 +11,14 @@ namespace LawFirmBusinessLogic.ViewModels
     {
         [DataMember]
         public int Id { set; get; }
-        [DisplayName("Имя пользователя")]
+        [DisplayName("ClientFIO")]
         [DataMember]
-        public string ClientName { get; set; }
+        public string ClientFIO { get; set; }
         [DataMember]
         [DisplayName("Email")]
         public string Email { get; set; }
+        [DataMember]
+        [DisplayName("Password")]
+        public string Password { set; get; }
     }
 }

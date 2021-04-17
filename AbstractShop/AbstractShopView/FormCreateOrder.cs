@@ -13,11 +13,13 @@ namespace LawFirmView
         public new IUnityContainer Container { get; set; }
         private readonly DocumentLogic _logicD;
         private readonly OrderLogic _logicO;
-        public FormCreateOrder(DocumentLogic logicP, OrderLogic logicO)
+        private readonly ClientLogic _logicC;
+        public FormCreateOrder(DocumentLogic logicP, OrderLogic logicO, ClientLogic logicC)
         {
             InitializeComponent();
             _logicD = logicP;
             _logicO = logicO;
+            _logicC = logicC;
         }
         private void FormCreateOrder_Load(object sender, EventArgs e)
         {
@@ -30,6 +32,23 @@ namespace LawFirmView
                     comboBoxDocument.ValueMember = "Id";
                     comboBoxDocument.DataSource = list;
                     comboBoxDocument.SelectedItem = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                List<ClientViewModel> list = _logicC.Read(null);
+                if (list != null)
+                {
+                    comboBoxClient.DisplayMember = "ClientFIO";
+                    comboBoxClient.ValueMember = "Id";
+                    comboBoxClient.DataSource = list;
+                    comboBoxClient.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -83,9 +102,9 @@ namespace LawFirmView
                MessageBoxIcon.Error);
                 return;
             }
-            if (textBoxName.Text == null)
+            if (comboBoxClient.Text == null)
             {
-                MessageBox.Show("Выберите название", "Ошибка", MessageBoxButtons.OK,
+                MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
                 return;
             }
@@ -96,7 +115,8 @@ namespace LawFirmView
                     Sum = _logicD.Read(new DocumentBindingModel {
                         Id = Convert.ToInt32(comboBoxDocument.SelectedValue) })[0].Price * Convert.ToInt32(textBoxCount.Text),
                     DocumentId = Convert.ToInt32(comboBoxDocument.SelectedValue),
-                    Count = Convert.ToInt32(textBoxCount.Text)
+                    Count = Convert.ToInt32(textBoxCount.Text),
+                    ClientId=Convert.ToInt32(comboBoxClient.SelectedValue)
                 }) ; 
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);

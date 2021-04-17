@@ -112,6 +112,7 @@ namespace LawFirmListImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.DocumentId = model.DocumentId;
+            order.ClientId = model.ClientId;
             order.Sum = model.Sum;
             order.Count = model.Count;
             order.Status = model.Status;
@@ -126,6 +127,7 @@ namespace LawFirmListImplement.Implements
             {
                 Id = order.Id,
                 DocumentId = order.DocumentId,
+                ClientId= (int)order.ClientId,
                 Sum = order.Sum,
                 Count = order.Count,
                 Status = order.Status,

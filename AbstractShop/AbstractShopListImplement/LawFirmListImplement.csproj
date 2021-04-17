@@ -39,9 +39,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\ClientStorage.cs" />
     <Compile Include="Models\Blank.cs" />
     <Compile Include="Implements\BlankStorage.cs" />
     <Compile Include="DataListSingleton.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Implements\OrderStorage.cs" />
     <Compile Include="Models\Document.cs" />

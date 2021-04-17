@@ -12,42 +12,12 @@ namespace LawFirmDatabaseImplement.Implements
 {
     public class ClientStorage : IClientStorage
     {
-        public void Delete(ClientBindingModel model)
+        public List<ClientViewModel> GetFullList()
         {
             using (var context = new LawFirmDatabase())
             {
-                var client = context.Clients.FirstOrDefault(rec => rec.Id == model.Id);
-
-                if (client == null)
-                {
-                    throw new Exception("Клиент не найден");
-                }
-
-                context.Clients.Remove(client);
-                context.SaveChanges();
-            }
-        }
-
-        public ClientViewModel GetElement(ClientBindingModel model)
-        {
-            if (model == null)
-            {
-                return null;
-            }
-
-            using (var context = new LawFirmDatabase())
-            {
-                var client = context.Clients
-                    .FirstOrDefault(rec => rec.Id == model.Id);
-
-                return client != null ?
-                    new ClientViewModel
-                    {
-                        Id = client.Id,
-                        ClientName = client.ClientName,
-                        Email = client.Email
-                    } :
-                    null;
+                return context.Clients
+                .Select(CreateModel).ToList();
             }
         }
 
@@ -57,34 +27,27 @@ namespace LawFirmDatabaseImplement.Implements
             {
                 return null;
             }
-
             using (var context = new LawFirmDatabase())
             {
                 return context.Clients
-                    .Where(rec => rec.ClientName.Contains(model.ClientName))
-                    .ToList()
-                    .Select(rec => new ClientViewModel
-                    {
-                        Id = rec.Id,
-                        ClientName = rec.ClientName,
-                        Email = rec.Email
-                    })
-                    .ToList();
+                    .Where(rec =>
+                    rec.ClientFIO.Contains(model.ClientFIO) || (rec.Email.Equals(model.Email) && rec.Password.Equals(model.Password)))
+                    .Select(CreateModel).ToList();
             }
         }
 
-        public List<ClientViewModel> GetFullList()
+        public ClientViewModel GetElement(ClientBindingModel model)
         {
+            if (model == null)
+            {
+                return null;
+            }
             using (var context = new LawFirmDatabase())
             {
-                return context.Clients
-                    .Select(rec => new ClientViewModel
-                    {
-                        Id = rec.Id,
-                        ClientName = rec.ClientName,
-                        Email = rec.Email
-                    })
-                    .ToList();
+                var client = context.Clients
+                .FirstOrDefault(rec => rec.Email.Equals(model.Email) || rec.Id == model.Id);
+                return client != null ?
+                CreateModel(client) : null;
             }
         }
 
@@ -92,20 +55,8 @@ namespace LawFirmDatabaseImplement.Implements
         {
             using (var context = new LawFirmDatabase())
             {
-                using (var transaction = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        CreateModel(model, new Client());
-                        context.SaveChanges();
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
+                context.Clients.Add(CreateModel(model, new Client()));
+                context.SaveChanges();
             }
         }
 
@@ -113,35 +64,50 @@ namespace LawFirmDatabaseImplement.Implements
         {
             using (var context = new LawFirmDatabase())
             {
-                using (var transaction = context.Database.BeginTransaction())
+                var element = context.Clients.FirstOrDefault(rec => rec.Id == model.Id);
+                if (element == null)
                 {
-                    try
-                    {
-                        var client = context.Clients.FirstOrDefault(rec => rec.Id == model.Id);
-                        if (client == null)
-                        {
-                            throw new Exception("клиент не найден");
-                        }
-                        CreateModel(model, client);
-                        context.SaveChanges();
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
+                    throw new Exception("Client not found");
+                }
+                CreateModel(model, element);
+                context.SaveChanges();
+            }
+        }
+
+        public void Delete(ClientBindingModel model)
+        {
+            using (var context = new LawFirmDatabase())
+            {
+                Client element = context.Clients.FirstOrDefault(rec => rec.Id == model.Id);
+                if (element != null)
+                {
+                    context.Clients.Remove(element);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Client not found");
                 }
             }
         }
 
         private Client CreateModel(ClientBindingModel model, Client client)
         {
-            client.ClientName = model.ClientName;
-            client.Password = model.Password;
+            client.ClientFIO = model.ClientFIO;
             client.Email = model.Email;
-            client.Id = (int)model.Id;           
+            client.Password = model.Password;
             return client;
+        }
+
+        private ClientViewModel CreateModel(Client client)
+        {
+            return new ClientViewModel
+            {
+                Id = client.Id,
+                ClientFIO = client.ClientFIO,
+                Email = client.Email,
+                Password = client.Password
+            };
         }
     }
 }
