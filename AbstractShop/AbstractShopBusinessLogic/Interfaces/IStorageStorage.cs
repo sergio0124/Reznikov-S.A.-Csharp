@@ -14,5 +14,6 @@ namespace LawFirmBusinessLogic.Interfaces
         void Insert(StorageBindingModel model);
         void Update(StorageBindingModel model);
         void Delete(StorageBindingModel model);
+        bool TakeFromStorage(Dictionary<int, (string, int)> blanks, int count);
     }
 }

@@ -1,5 +1,4 @@
-﻿using AbstractShopListImplement.Models;
-using LawFirmListImplement.Models;
+﻿using LawFirmListImplement.Models;
 using System.Collections.Generic;
 namespace LawFirmListImplement
 {

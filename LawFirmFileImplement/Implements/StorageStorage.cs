@@ -1,136 +1,85 @@
 ﻿using LawFirmBusinessLogic.BindingModels;
 using LawFirmBusinessLogic.Interfaces;
 using LawFirmBusinessLogic.ViewModels;
-using LawFirmListImplement;
 using LawFirmListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace LawFirmListImplement.Implements
+namespace LawFirmFileImplement.Implements
 {
     public class StorageStorage: IStorageStorage
     {
-        private readonly DataListSingleton source;
+        private readonly FileDataListSingleton source;
 
         public StorageStorage()
         {
-            source = DataListSingleton.GetInstance();
+            source = FileDataListSingleton.GetInstance();
         }
-
         public List<StorageViewModel> GetFullList()
         {
-            List<StorageViewModel> result = new List<StorageViewModel>();
-
-            foreach (var storage in source.Storages)
-            {
-                result.Add(CreateModel(storage));
-            }
-
-            return result;
+            return source.Storages
+            .Select(CreateModel)
+           .ToList();
         }
-
         public List<StorageViewModel> GetFilteredList(StorageBindingModel model)
         {
             if (model == null)
             {
                 return null;
             }
-
-            List<StorageViewModel> result = new List<StorageViewModel>();
-
-            foreach (var storage in source.Storages)
-            {
-                if (storage.StorageName.Contains(model.StorageName))
-                {
-                    result.Add(CreateModel(storage));
-                }
-            }
-
-            return result;
+            return source.Storages
+            .Where(rec => rec.StorageName.Contains(model.StorageName))
+           .Select(CreateModel)
+            .ToList();
         }
-
         public StorageViewModel GetElement(StorageBindingModel model)
         {
             if (model == null)
             {
                 return null;
             }
-
-            foreach (var storage in source.Storages)
-            {
-                if (storage.Id == model.Id || storage.StorageName == model.StorageName)
-                {
-                    return CreateModel(storage);
-                }
-            }
-
-            return null;
+            var storages = source.Storages
+            .FirstOrDefault(rec => rec.StorageName == model.StorageName ||
+           rec.Id == model.Id);
+            return storages != null ? CreateModel(storages) : null;
         }
-
         public void Insert(StorageBindingModel model)
         {
-            Storage tempStorage = new Storage
-            {
-                Id = 1,
-                StorageBlanks = new Dictionary<int, int>(),
-                DateCreate = DateTime.Now,
-                StorageManager=model.StorageManager,
-                StorageName=model.StorageName
-            };
-
-            foreach (var storage in source.Storages)
-            {
-                if (storage.Id >= tempStorage.Id)
-                {
-                    tempStorage.Id = storage.Id + 1;
-                }
-            }
-
-            source.Storages.Add(CreateModel(model, tempStorage));
+            int maxId = source.Storages.Count > 0 ? source.Storages.Max(xStorage => xStorage.Id) : 0;
+            var storage = new Storage { Id = maxId + 1, StorageBlanks = new Dictionary<int, int>(), DateCreate = DateTime.Now };
+            source.Storages.Add(CreateModel(model, storage));
         }
 
         public void Update(StorageBindingModel model)
         {
-            Storage tempStorage = null;
+            var storage = source.Storages.FirstOrDefault(XStorage => XStorage.Id == model.Id);
 
-            foreach (var storage in source.Storages)
+            if (storage == null)
             {
-                if (storage.Id == model.Id)
-                {
-                    tempStorage = storage;
-                }
+                throw new Exception("Склад не найден");
             }
 
-            if (tempStorage == null)
+            CreateModel(model, storage);
+        }
+        public void Delete(StorageBindingModel model)
+        {
+            Storage element = source.Storages.FirstOrDefault(rec => rec.Id ==
+           model.Id);
+            if (element != null)
+            {
+                source.Storages.Remove(element);
+            }
+            else
             {
                 throw new Exception("Элемент не найден");
             }
-
-            CreateModel(model, tempStorage);
         }
-
-        public void Delete(StorageBindingModel model)
-        {
-            for (int i = 0; i < source.Storages.Count; ++i)
-            {
-                if (source.Storages[i].Id == model.Id)
-                {
-                    source.Storages.RemoveAt(i);
-
-                    return;
-                }
-            }
-            throw new Exception("Элемент не найден");
-        }
-
         private Storage CreateModel(StorageBindingModel model, Storage storage)
         {
             storage.StorageName = model.StorageName;
             storage.StorageManager = model.StorageManager;
-
             foreach (var key in storage.StorageBlanks.Keys.ToList())
             {
                 if (!model.StorageBlanks.ContainsKey(key))
@@ -150,13 +99,10 @@ namespace LawFirmListImplement.Implements
                     storage.StorageBlanks.Add(blanks.Key, model.StorageBlanks[blanks.Key].Item2);
                 }
             }
-
             return storage;
         }
-
         private StorageViewModel CreateModel(Storage storage)
         {
-
             Dictionary<int, (string, int)> StorageBlanks = new Dictionary<int, (string, int)>();
 
             foreach (var storageBlank in storage.StorageBlanks)
@@ -172,7 +118,6 @@ namespace LawFirmListImplement.Implements
                         break;
                     }
                 }
-
                 StorageBlanks.Add(storageBlank.Key, (blankName, storageBlank.Value));
             }
 
@@ -188,7 +133,45 @@ namespace LawFirmListImplement.Implements
 
         public bool TakeFromStorage(Dictionary<int, (string, int)> blanks, int count)
         {
-            throw new NotImplementedException();
+            foreach (var blank in blanks)
+            {
+                int _count = source.Storages.
+                    Where(document => document.StorageBlanks
+                    .ContainsKey(blank.Key))
+                    .Sum(document => document.StorageBlanks[blank.Key]);
+
+                if (_count < blank.Value.Item2 * count)
+                {
+                    return false;
+                }
+            }
+
+            foreach (var blank in blanks)
+            {
+                int number = blank.Value.Item2 * count;
+                IEnumerable<Storage> storages = source.Storages.Where(document => document.StorageBlanks.ContainsKey(blank.Key));
+
+                foreach (Storage storage in storages)
+                {
+                    if (storage.StorageBlanks[blank.Key] <= number)
+                    {
+                        number -= storage.StorageBlanks[blank.Key];
+                        storage.StorageBlanks.Remove(blank.Key);
+                    }
+                    else
+                    {
+                        storage.StorageBlanks[blank.Key] -= number;
+                        number = 0;
+                    }
+
+                    if (number == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }

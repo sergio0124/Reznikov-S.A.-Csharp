@@ -83,21 +83,17 @@ namespace LawFirmView
                MessageBoxIcon.Error);
                 return;
             }
-            if (textBoxName.Text == null)
-            {
-                MessageBox.Show("Выберите название", "Ошибка", MessageBoxButtons.OK,
-               MessageBoxIcon.Error);
-                return;
-            }
             try
             {
+                CalcSum();
                 _logicO.CreateOrder(new CreateOrderBindingModel
-                {
-                    Sum = _logicD.Read(new DocumentBindingModel {
-                        Id = Convert.ToInt32(comboBoxDocument.SelectedValue) })[0].Price * Convert.ToInt32(textBoxCount.Text),
+
+                {                   
+                    Sum = Convert.ToInt32(textBoxSum.Text),
                     DocumentId = Convert.ToInt32(comboBoxDocument.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text)
-                }) ; 
+                }) ;
+
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

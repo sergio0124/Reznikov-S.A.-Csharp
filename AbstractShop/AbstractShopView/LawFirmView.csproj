@@ -299,10 +299,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+
     <ProjectReference Include="..\..\LawFirmDatabaseImplement\LawFirmDatabaseImplement.csproj">
       <Project>{0852dccc-6c8c-44bd-8cd6-0a295a7251a8}</Project>
       <Name>LawFirmDatabaseImplement</Name>
     </ProjectReference>
+
     <ProjectReference Include="..\..\LawFirmFileImplement\LawFirmFileImplement.csproj">
       <Project>{d7f691d1-d2dd-4fcd-8c77-d2d9c05a36dc}</Project>
       <Name>LawFirmFileImplement</Name>

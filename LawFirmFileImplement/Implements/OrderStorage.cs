@@ -130,12 +130,14 @@ namespace LawFirmFileImplement.Implements
 
 		private OrderViewModel CreateModel(Order order)
 		{
+			string documentName = source.Documents.FirstOrDefault(rec => rec.Id == order.DocumentId).DocumentName;
 			return new OrderViewModel
 			{
 				Id = order.Id,
 				DocumentId = order.DocumentId,
-				Count = order.Count,
 				Sum = order.Sum,
+				Count = order.Count,
+				DocumentName = documentName,
 				Status = order.Status,
 				DateCreate = order.DateCreate,
 				DateImplement = order.DateImplement
