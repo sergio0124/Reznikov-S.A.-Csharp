@@ -22,13 +22,13 @@ namespace LawFirmDatabaseImplement.Implements
                         Id = rec.Id,
                         DocumentName = rec.Document.DocumentName,
                         DocumentId = rec.DocumentId,
-                        ClientFIO=rec.Client.ClientFIO,
+                        ClientFIO = rec.Client.ClientFIO,
                         Count = rec.Count,
                         Sum = rec.Sum,
                         Status = rec.Status,
                         DateCreate = rec.DateCreate,
                         DateImplement = rec.DateImplement,
-                        ClientId=rec.ClientId
+                        ClientId = rec.ClientId,
                     })
                     .ToList();
             }
@@ -43,19 +43,19 @@ namespace LawFirmDatabaseImplement.Implements
             using (var context = new LawFirmDatabase())
             {
                 return context.Orders
-                    .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+                    .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo || rec.ClientId==model.ClientId)
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
                     DocumentName = rec.Document.DocumentName,
-                    ClientFIO=rec.Client.ClientFIO,
                     DocumentId = rec.DocumentId,
+                    ClientFIO = rec.Client.ClientFIO,
+                    ClientId = rec.ClientId,
                     Count = rec.Count,
                     Sum = rec.Sum,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement,
-                    ClientId = rec.ClientId
+                    DateImplement = rec.DateImplement
                 })
                     .ToList();
             }
@@ -76,10 +76,10 @@ namespace LawFirmDatabaseImplement.Implements
                     new OrderViewModel
                     {
                         Id = order.Id,
-                        DocumentName=order.Document?.DocumentName,
+                        DocumentName = order.Document?.DocumentName,
                         DocumentId = order.DocumentId,
-                        ClientFIO=order.Client?.ClientFIO,
-                        ClientId=order.ClientId,
+                        ClientFIO = order.Client?.ClientFIO,
+                        ClientId = order.ClientId,
                         Count = order.Count,
                         Sum = order.Sum,
                         Status = order.Status,
@@ -129,6 +129,7 @@ namespace LawFirmDatabaseImplement.Implements
         }
         private Order CreateModel(OrderBindingModel model, Order order)
         {
+
             order.DocumentId = model.DocumentId;
             order.ClientId = (int)model.ClientId;
             order.Sum = model.Sum;

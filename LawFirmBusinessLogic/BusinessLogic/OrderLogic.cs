@@ -58,6 +58,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
             {
                 Id = order.Id,
                 Sum=order.Sum,
+                ClientId=order.ClientId,
                 DocumentId = order.DocumentId,
                 Count = order.Count,
                 DateCreate = order.DateCreate,
@@ -85,6 +86,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 Id = order.Id,
                 Sum = order.Sum,
                 DocumentId = order.DocumentId,
+                ClientId=order.ClientId,
                 Count = order.Count,
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement,
@@ -109,6 +111,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
             {
                 Id = order.Id,
                 DocumentId = order.DocumentId,
+                ClientId=order.ClientId,
                 Sum = order.Sum,
                 Count = order.Count,
                 DateCreate = order.DateCreate,

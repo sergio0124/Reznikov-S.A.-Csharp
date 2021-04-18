@@ -1,12 +1,13 @@
 ﻿using LawFirmBusinessLogic.BindingModels;
 using LawFirmBusinessLogic.ViewModels;
+using LawFirmClientApp;
 using LawFirmClientApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace LawFirmClientApp.Controllers
+namespace DocumentShopClientApp.Controllers
 {
     public class HomeController : Controller
     {
@@ -37,7 +38,13 @@ namespace LawFirmClientApp.Controllers
             if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(password)
             && !string.IsNullOrEmpty(fio))
             {
-                //прописать запрос
+                APIClient.PostRequest("api/client/updatedata", new ClientBindingModel
+                {
+                    Id = Program.Client.Id,
+                    ClientFIO = fio,
+                    Email = login,
+                    Password = password
+                });
                 Program.Client.ClientFIO = fio;
                 Program.Client.Email = login;
                 Program.Client.Password = password;
@@ -46,8 +53,7 @@ namespace LawFirmClientApp.Controllers
             }
             throw new Exception("Введите логин, пароль и ФИО");
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore
-        = true)]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel
@@ -66,8 +72,8 @@ namespace LawFirmClientApp.Controllers
         {
             if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(password))
             {
-                Program.Client = APIClient.GetRequest<ClientViewModel>($"api/client/login?login={login}&password={password}");
-
+                Program.Client =
+                APIClient.GetRequest<ClientViewModel>($"api/client/login?login={login}&password={password}");
                 if (Program.Client == null)
                 {
                     throw new Exception("Неверный логин/пароль");
@@ -103,26 +109,31 @@ namespace LawFirmClientApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Products =
-            APIClient.GetRequest<List<DocumentViewModel>>("api/main/getproductlist");
+            ViewBag.Documents =
+            APIClient.GetRequest<List<DocumentViewModel>>("api/main/getdocumentlist");
             return View();
         }
         [HttpPost]
-        public void Create(int product, int count, decimal sum)
+        public void Create(int document, int count, decimal sum)
         {
             if (count == 0 || sum == 0)
             {
                 return;
             }
-            //прописать запрос
+            APIClient.PostRequest("api/main/createorder", new CreateOrderBindingModel
+            {
+                DocumentId = document,
+                ClientId = Program.Client.Id,
+                Sum = sum,
+                Count = count
+            });
             Response.Redirect("Index");
         }
         [HttpPost]
-        public decimal Calc(decimal count, int product)
+        public decimal Calc(decimal count, int document)
         {
-
             DocumentViewModel prod =
-        APIClient.GetRequest<DocumentViewModel>($"api/main/getproduct?productId={product}");
+            APIClient.GetRequest<DocumentViewModel>($"api/main/getDocument?DocumentId={document}");
             return count * prod.Price;
         }
     }

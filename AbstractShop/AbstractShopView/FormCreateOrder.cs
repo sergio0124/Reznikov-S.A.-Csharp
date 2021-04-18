@@ -102,7 +102,7 @@ namespace LawFirmView
                MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxClient.Text == null)
+            if (comboBoxClient.SelectedValue == null)
             {
                 MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
@@ -113,7 +113,8 @@ namespace LawFirmView
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
                     Sum = _logicD.Read(new DocumentBindingModel {
-                        Id = Convert.ToInt32(comboBoxDocument.SelectedValue) })[0].Price * Convert.ToInt32(textBoxCount.Text),
+                        Id = Convert.ToInt32(comboBoxDocument.SelectedValue) 
+                    })[0].Price * Convert.ToInt32(textBoxCount.Text),
                     DocumentId = Convert.ToInt32(comboBoxDocument.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     ClientId=Convert.ToInt32(comboBoxClient.SelectedValue)

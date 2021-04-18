@@ -7,7 +7,7 @@ using System.Text;
 
 namespace LawFirmClientApp
 {
-    public class APIClient
+    public static class APIClient
     {
         private static readonly HttpClient client = new HttpClient();
         public static void Connect(IConfiguration configuration)
@@ -41,6 +41,5 @@ namespace LawFirmClientApp
                 throw new Exception(result);
             }
         }
-
     }
 }

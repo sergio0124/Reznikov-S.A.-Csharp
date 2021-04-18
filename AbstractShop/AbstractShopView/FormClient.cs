@@ -27,6 +27,7 @@ namespace AbstractShopView
         }
         private void FormClient_Load(object sender, EventArgs e)
         {
+            textBoxPassword.PasswordChar = '*';
             if (id.HasValue)
             {
                 try

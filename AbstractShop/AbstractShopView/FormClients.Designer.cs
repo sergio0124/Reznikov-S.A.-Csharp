@@ -50,11 +50,11 @@ namespace AbstractShopView
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(582, 103);
+            this.buttonUpd.Location = new System.Drawing.Point(581, 42);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(101, 23);
             this.buttonUpd.TabIndex = 9;
-            this.buttonUpd.Text = "Обновить";
+            this.buttonUpd.Text = "Изменить";
             this.buttonUpd.UseVisualStyleBackColor = true;
             this.buttonUpd.Click += new System.EventHandler(this.buttonUpd_Click);
             // 
@@ -70,11 +70,11 @@ namespace AbstractShopView
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(582, 43);
+            this.buttonRef.Location = new System.Drawing.Point(581, 102);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(101, 23);
             this.buttonRef.TabIndex = 7;
-            this.buttonRef.Text = "Изменить";
+            this.buttonRef.Text = "Обновить";
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.buttonRef_Click);
             // 
