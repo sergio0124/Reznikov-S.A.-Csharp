@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "DocumentFormat.OpenXml/2.12.3": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -26,31 +38,74 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "LawFirmBusinessLogic/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+      "PDFsharp-MigraDoc/1.50.5147": {
+        "type": "package",
         "compile": {
-          "bin/placeholder/LawFirmBusinessLogic.dll": {}
+          "lib/net20/MigraDoc.DocumentObjectModel.dll": {},
+          "lib/net20/MigraDoc.Rendering.dll": {},
+          "lib/net20/MigraDoc.RtfRendering.dll": {},
+          "lib/net20/PdfSharp.Charting.dll": {},
+          "lib/net20/PdfSharp.dll": {}
         },
         "runtime": {
-          "bin/placeholder/LawFirmBusinessLogic.dll": {}
+          "lib/net20/MigraDoc.DocumentObjectModel.dll": {},
+          "lib/net20/MigraDoc.Rendering.dll": {},
+          "lib/net20/MigraDoc.RtfRendering.dll": {},
+          "lib/net20/PdfSharp.Charting.dll": {},
+          "lib/net20/PdfSharp.dll": {}
+        },
+        "resource": {
+          "lib/net20/de/MigraDoc.DocumentObjectModel.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/MigraDoc.Rendering.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/MigraDoc.RtfRendering.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/PdfSharp.Charting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/PdfSharp.resources.dll": {
+            "locale": "de"
+          }
         }
       },
-      "LawFirmListImplement/1.0.0": {
-        "type": "project",
-        "dependencies": {
-          "LawFirmBusinessLogic": "1.0.0"
-        },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
         "compile": {
-          "bin/placeholder/LawFirmListImplement.dll": {}
+          "ref/netstandard2.0/System.IO.Packaging.dll": {}
         },
         "runtime": {
-          "bin/placeholder/LawFirmListImplement.dll": {}
+          "lib/netstandard2.0/System.IO.Packaging.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "DocumentFormat.OpenXml/2.12.3": {
+      "sha512": "qLww6khV25dTzGU3+9rG5vB6RbMoWuNA015151ZmazoepkvxW6/4a5u4QQASoXsZsBITsw5ZO0/Xpzm31tQ43g==",
+      "type": "package",
+      "path": "documentformat.openxml/2.12.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "documentformat.openxml.2.12.3.nupkg.sha512",
+        "documentformat.openxml.nuspec",
+        "icon.png",
+        "lib/net35/DocumentFormat.OpenXml.dll",
+        "lib/net35/DocumentFormat.OpenXml.xml",
+        "lib/net40/DocumentFormat.OpenXml.dll",
+        "lib/net40/DocumentFormat.OpenXml.xml",
+        "lib/net46/DocumentFormat.OpenXml.dll",
+        "lib/net46/DocumentFormat.OpenXml.xml",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.dll",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -194,22 +249,65 @@
         "netstandard.library.nuspec"
       ]
     },
-    "LawFirmBusinessLogic/1.0.0": {
-      "type": "project",
-      "path": "../AbstractShop/AbstractShopBusinessLogic/LawFirmBusinessLogic.csproj",
-      "msbuildProject": "../AbstractShop/AbstractShopBusinessLogic/LawFirmBusinessLogic.csproj"
+    "PDFsharp-MigraDoc/1.50.5147": {
+      "sha512": "YMtUVAQF281GuSrQwfs4x86S6ZaWuIYdjGoRRLZWCPG45keasqSpSGtUKIQN0zRSFT9jjvScVRfAJpfRV5L8DA==",
+      "type": "package",
+      "path": "pdfsharp-migradoc/1.50.5147",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/MigraDoc.DocumentObjectModel.dll",
+        "lib/net20/MigraDoc.DocumentObjectModel.xml",
+        "lib/net20/MigraDoc.Rendering.dll",
+        "lib/net20/MigraDoc.Rendering.xml",
+        "lib/net20/MigraDoc.RtfRendering.dll",
+        "lib/net20/MigraDoc.RtfRendering.xml",
+        "lib/net20/PdfSharp.Charting.dll",
+        "lib/net20/PdfSharp.Charting.xml",
+        "lib/net20/PdfSharp.dll",
+        "lib/net20/PdfSharp.xml",
+        "lib/net20/de/MigraDoc.DocumentObjectModel.resources.dll",
+        "lib/net20/de/MigraDoc.Rendering.resources.dll",
+        "lib/net20/de/MigraDoc.RtfRendering.resources.dll",
+        "lib/net20/de/PdfSharp.Charting.resources.dll",
+        "lib/net20/de/PdfSharp.resources.dll",
+        "pdfsharp-migradoc.1.50.5147.nupkg.sha512",
+        "pdfsharp-migradoc.nuspec"
+      ]
     },
-    "LawFirmListImplement/1.0.0": {
-      "type": "project",
-      "path": "../AbstractShop/AbstractShopListImplement/LawFirmListImplement.csproj",
-      "msbuildProject": "../AbstractShop/AbstractShopListImplement/LawFirmListImplement.csproj"
+    "System.IO.Packaging/4.7.0": {
+      "sha512": "9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "type": "package",
+      "path": "system.io.packaging/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.IO.Packaging.dll",
+        "lib/net46/System.IO.Packaging.xml",
+        "lib/netstandard1.3/System.IO.Packaging.dll",
+        "lib/netstandard1.3/System.IO.Packaging.xml",
+        "lib/netstandard2.0/System.IO.Packaging.dll",
+        "lib/netstandard2.0/System.IO.Packaging.xml",
+        "ref/net46/System.IO.Packaging.dll",
+        "ref/net46/System.IO.Packaging.xml",
+        "ref/netstandard1.3/System.IO.Packaging.dll",
+        "ref/netstandard1.3/System.IO.Packaging.xml",
+        "ref/netstandard2.0/System.IO.Packaging.dll",
+        "ref/netstandard2.0/System.IO.Packaging.xml",
+        "system.io.packaging.4.7.0.nupkg.sha512",
+        "system.io.packaging.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "LawFirmBusinessLogic >= 1.0.0",
-      "LawFirmListImplement >= 1.0.0",
-      "NETStandard.Library >= 2.0.3"
+      "DocumentFormat.OpenXml >= 2.12.3",
+      "NETStandard.Library >= 2.0.3",
+      "PDFsharp-MigraDoc >= 1.50.5147"
     ]
   },
   "packageFolders": {
@@ -219,11 +317,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmFileImplement\\LawFirmFileImplement.csproj",
-      "projectName": "LawFirmFileImplement",
-      "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmFileImplement\\LawFirmFileImplement.csproj",
+      "projectUniqueName": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmBusinessLogic\\LawFirmBusinessLogic.csproj",
+      "projectName": "LawFirmBusinessLogic",
+      "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmBusinessLogic\\LawFirmBusinessLogic.csproj",
       "packagesPath": "C:\\Users\\Mvideo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmFileImplement\\obj\\",
+      "outputPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\LawFirmBusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -242,14 +340,7 @@
       "frameworks": {
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
-          "projectReferences": {
-            "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\LawFirmBusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopBusinessLogic\\LawFirmBusinessLogic.csproj"
-            },
-            "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopListImplement\\LawFirmListImplement.csproj": {
-              "projectPath": "C:\\Users\\Mvideo\\Desktop\\4 семестр\\Технологии программирования\\Reznikov-S.A.-Csharp\\AbstractShop\\AbstractShopListImplement\\LawFirmListImplement.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -262,11 +353,19 @@
       "netstandard2.0": {
         "targetAlias": "netstandard2.0",
         "dependencies": {
+          "DocumentFormat.OpenXml": {
+            "target": "Package",
+            "version": "[2.12.3, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "PDFsharp-MigraDoc": {
+            "target": "Package",
+            "version": "[1.50.5147, )"
           }
         },
         "imports": [
@@ -282,5 +381,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"PDFsharp-MigraDoc 1.50.5147\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETStandard,Version=v2.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "PDFsharp-MigraDoc",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }
