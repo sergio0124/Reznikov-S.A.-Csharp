@@ -8,7 +8,7 @@ namespace LawFirmBusinessLogic.ViewModels
     public class BlankViewModel
     {
         public int Id { get; set; }
-        [DisplayName("Название компонента")]
+        [DisplayName("Название бланка")]
         public string BlankName { get; set; }
     }
 }
