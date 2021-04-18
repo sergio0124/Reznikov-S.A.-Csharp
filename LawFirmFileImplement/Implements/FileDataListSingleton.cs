@@ -17,18 +17,19 @@ namespace LawFirmFileImplement.Implements
         private readonly string OrderFileName = "Order.xml";
         private readonly string DocumentFileName = "Document.xml";
         private readonly string ClientFileName = "Client.xml";
+        private readonly string ImplementerFileName = "Implementer.xml";
         public List<Blank> Blanks { get; set; }
         public List<Order> Orders { get; set; }
         public List<Document> Documents { get; set; }
         public List<Client> Clients { set; get; }
-        public object Blank { get; internal set; }
-
+        public List<Implementer> Implementers { set; get; }
         private FileDataListSingleton()
         {
             Blanks = LoadBlanks();
             Orders = LoadOrders();
             Documents = LoadDocuments();
             Clients = LoadClients();
+            Implementers = LoadImplementers();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -44,6 +45,28 @@ namespace LawFirmFileImplement.Implements
             SaveOrders();
             SaveDocuments();
             SaveClients();
+            SaveImplementers();
+        }
+        private List<Implementer> LoadImplementers()
+        {
+            var list = new List<Implementer>();
+            if (File.Exists(ImplementerFileName))
+            {
+                XDocument xDocument = XDocument.Load(ImplementerFileName);
+                var xElements = xDocument.Root.Elements("Implementer").ToList();
+
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Implementer
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        ImplementerFIO = elem.Element("ImplementerFIO").Value,
+                        PauseTime= Convert.ToInt32(elem.Attribute("PauseTime").Value),
+                        WorkingTime = Convert.ToInt32(elem.Attribute("WorkingTime").Value)
+                    });
+                }
+            }
+            return list;
         }
         private List<Blank> LoadBlanks()
         {
@@ -98,7 +121,8 @@ namespace LawFirmFileImplement.Implements
                         DocumentId = Convert.ToInt32(elem.Element("DocumentId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
-                        DateImplement = Convert.ToDateTime(elem.Element("DateImplement").Value),                      
+                        DateImplement = Convert.ToDateTime(elem.Element("DateImplement").Value),   
+                        ImplementerId=Convert.ToInt32(elem.Element("ImplementerId").Value),
                         Status = status
                     });
                 }
@@ -168,6 +192,24 @@ namespace LawFirmFileImplement.Implements
                 xDocument.Save(BlankFileName);
             }
         }
+        private void SaveImplementers()
+        {
+            if (Implementers != null)
+            {
+                var xElement = new XElement("Implementers");
+                foreach (var implementer in Implementers)
+                {
+                    xElement.Add(new XElement("Implementer",
+                    new XAttribute("Id", implementer.Id),
+                    new XElement("ImplementerFIO", implementer.ImplementerFIO),
+                    new XElement("WorkingTime", implementer.WorkingTime),
+                    new XElement("PauseTime", implementer.PauseTime)));
+                }
+
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(ImplementerFileName);
+            }
+        }
         private void SaveOrders()
         {
             if (Orders != null)
@@ -183,6 +225,7 @@ namespace LawFirmFileImplement.Implements
                     new XElement("Count", order.Count),
                     new XElement("DateCreate", order.DateCreate),
                     new XElement("DateImplement", order.DateImplement),
+                    new XElement("ImplementerId", order.ImplementerId),
                     new XElement("Status", order.Status)));
                 }
 

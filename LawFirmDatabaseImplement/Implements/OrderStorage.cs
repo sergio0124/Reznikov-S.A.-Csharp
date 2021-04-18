@@ -1,4 +1,5 @@
 ﻿using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.Enums;
 using LawFirmBusinessLogic.Interfaces;
 using LawFirmBusinessLogic.ViewModels;
 using LawFirmDatabaseImplement.Models;
@@ -43,7 +44,10 @@ namespace LawFirmDatabaseImplement.Implements
             using (var context = new LawFirmDatabase())
             {
                 return context.Orders
-                    .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo || rec.ClientId==model.ClientId)
+                    .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo || 
+                    rec.ClientId==model.ClientId 
+                    || (model.Status.HasValue && model.Status == rec.Status && rec.Status == OrderStatus.Выполняется && model.ImplemeterId.HasValue && rec.ImplementerId == rec.ImplementerId)
+                    || (model.Status.HasValue && model.Status == rec.Status && rec.Status == OrderStatus.Принят))
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
@@ -134,7 +138,7 @@ namespace LawFirmDatabaseImplement.Implements
             order.ClientId = (int)model.ClientId;
             order.Sum = model.Sum;
             order.Count = model.Count;
-            order.Status = model.Status;
+            order.Status = (LawFirmBusinessLogic.Enums.OrderStatus)model.Status;
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
 

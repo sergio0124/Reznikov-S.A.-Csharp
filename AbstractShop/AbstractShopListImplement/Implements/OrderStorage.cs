@@ -1,4 +1,5 @@
 ﻿using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.Enums;
 using LawFirmBusinessLogic.Interfaces;
 using LawFirmBusinessLogic.ViewModels;
 using LawFirmListImplement.Models;
@@ -38,7 +39,10 @@ namespace LawFirmListImplement.Implements
             List<OrderViewModel> result = new List<OrderViewModel>();
             foreach (var order in source.Orders)
             {
-                if (order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo)
+                if (order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo ||
+                    order.ClientId == model.ClientId
+                    || (model.Status.HasValue && model.Status==order.Status && order.Status == OrderStatus.Выполняется && model.ImplemeterId.HasValue && order.ImplementerId==order.ImplementerId)
+                    || (model.Status.HasValue && model.Status == order.Status && order.Status == OrderStatus.Принят))
                 {
                     result.Add(CreateModel(order));
                 }
@@ -115,9 +119,10 @@ namespace LawFirmListImplement.Implements
             order.ClientId = model.ClientId;
             order.Sum = model.Sum;
             order.Count = model.Count;
-            order.Status = model.Status;
+            order.Status = (OrderStatus)model.Status;
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
+            order.ImplementerId = model.ImplemeterId;
             return order;
         }
 
@@ -127,7 +132,7 @@ namespace LawFirmListImplement.Implements
             {
                 Id = order.Id,
                 DocumentId = order.DocumentId,
-                ClientId= (int)order.ClientId,
+                ClientId = (int)order.ClientId,
                 Sum = order.Sum,
                 Count = order.Count,
                 Status = order.Status,

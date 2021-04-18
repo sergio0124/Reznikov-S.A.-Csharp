@@ -20,7 +20,7 @@ namespace LawFirmBusinessLogic.BindingModels
         [DataMember]
         public decimal Sum { get; set; }
         [DataMember]
-        public OrderStatus Status { get; set; }
+        public OrderStatus? Status { get; set; }
         [DataMember]
         public DateTime DateCreate { get; set; }
         [DataMember]
@@ -31,5 +31,9 @@ namespace LawFirmBusinessLogic.BindingModels
         public DateTime? DateTo { get; set; }
         [DataMember]
         public int? ClientId { get; set; }
+        [DataMember]
+        public int? ImplemeterId { set; get; }
+        [DataMember]
+        public bool? FreeOrders { set; get; }
     }
 }

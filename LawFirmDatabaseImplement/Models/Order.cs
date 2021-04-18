@@ -14,6 +14,8 @@ namespace LawFirmDatabaseImplement.Models
         [Required]
         [ForeignKey("Client")]
         public int ClientId { set; get; }
+        [ForeignKey("Implementer")]
+        public int? ImplementerId { set; get; }
         [Required]
         public int Count { set; get; }
         [Required]
@@ -25,5 +27,6 @@ namespace LawFirmDatabaseImplement.Models
         public DateTime? DateImplement { get; set; }
         public Document Document { set; get; }
         public Client Client { set; get; }
+        public Implementer Implementer { set; get; }
     }
 }

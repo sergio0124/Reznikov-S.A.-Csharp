@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LawFirmDatabaseImplement.Migrations
 {
     [DbContext(typeof(LawFirmDatabase))]
-    [Migration("20210316082554_initialcreate")]
+    [Migration("20210418091749_initialcreate")]
     partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,30 @@ namespace LawFirmDatabaseImplement.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Blanks");
+                });
+
+            modelBuilder.Entity("LawFirmDatabaseImplement.Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClientFIO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("LawFirmDatabaseImplement.Models.Document", b =>
@@ -81,12 +105,37 @@ namespace LawFirmDatabaseImplement.Migrations
                     b.ToTable("DocumentBlanks");
                 });
 
+            modelBuilder.Entity("LawFirmDatabaseImplement.Models.Implementer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImplementerFIO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PauseTime")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkingTime")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Implementers");
+                });
+
             modelBuilder.Entity("LawFirmDatabaseImplement.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Count")
                         .HasColumnType("int");
@@ -100,6 +149,9 @@ namespace LawFirmDatabaseImplement.Migrations
                     b.Property<int>("DocumentId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ImplementerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -108,7 +160,11 @@ namespace LawFirmDatabaseImplement.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientId");
+
                     b.HasIndex("DocumentId");
+
+                    b.HasIndex("ImplementerId");
 
                     b.ToTable("Orders");
                 });
@@ -130,11 +186,21 @@ namespace LawFirmDatabaseImplement.Migrations
 
             modelBuilder.Entity("LawFirmDatabaseImplement.Models.Order", b =>
                 {
+                    b.HasOne("LawFirmDatabaseImplement.Models.Client", "Client")
+                        .WithMany("Orders")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("LawFirmDatabaseImplement.Models.Document", "Document")
                         .WithMany("Order")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("LawFirmDatabaseImplement.Models.Implementer", "Implementer")
+                        .WithMany("Orders")
+                        .HasForeignKey("ImplementerId");
                 });
 #pragma warning restore 612, 618
         }

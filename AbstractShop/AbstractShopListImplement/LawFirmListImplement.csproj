@@ -44,6 +44,7 @@
     <Compile Include="Implements\BlankStorage.cs" />
     <Compile Include="DataListSingleton.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Implementer.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Implements\OrderStorage.cs" />
     <Compile Include="Models\Document.cs" />

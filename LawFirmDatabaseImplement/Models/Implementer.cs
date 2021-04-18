@@ -6,16 +6,14 @@ using System.Text;
 
 namespace LawFirmDatabaseImplement.Models
 {
-    public class Client
+    public class Implementer
     {
-        public int Id { set; get; }
+        public int Id { get; set; }
         [Required]
-        public string ClientFIO { get; set; }
-        [Required]
-        public string Password { set; get; }
-        [Required]
-        public string Email { set; get; }
-        [ForeignKey("ClientId")]
+        public string ImplementerFIO { get; set; }
+        public int WorkingTime { get; set; }
+        public int PauseTime { get; set; }
+        [ForeignKey("ImplementerId")]
         public virtual List<Order> Orders { set; get; }
     }
 }

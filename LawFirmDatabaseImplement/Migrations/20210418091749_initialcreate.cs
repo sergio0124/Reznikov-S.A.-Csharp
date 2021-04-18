@@ -21,6 +21,21 @@ namespace LawFirmDatabaseImplement.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Clients",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClientFIO = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clients", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Documents",
                 columns: table => new
                 {
@@ -32,6 +47,21 @@ namespace LawFirmDatabaseImplement.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Documents", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Implementers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImplementerFIO = table.Column<string>(nullable: false),
+                    WorkingTime = table.Column<int>(nullable: false),
+                    PauseTime = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Implementers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,6 +98,8 @@ namespace LawFirmDatabaseImplement.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DocumentId = table.Column<int>(nullable: false),
+                    ClientId = table.Column<int>(nullable: false),
+                    ImplementerId = table.Column<int>(nullable: true),
                     Count = table.Column<int>(nullable: false),
                     Sum = table.Column<decimal>(nullable: false),
                     Status = table.Column<int>(nullable: false),
@@ -78,11 +110,23 @@ namespace LawFirmDatabaseImplement.Migrations
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Orders_Clients_ClientId",
+                        column: x => x.ClientId,
+                        principalTable: "Clients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Orders_Documents_DocumentId",
                         column: x => x.DocumentId,
                         principalTable: "Documents",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_Implementers_ImplementerId",
+                        column: x => x.ImplementerId,
+                        principalTable: "Implementers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -96,9 +140,19 @@ namespace LawFirmDatabaseImplement.Migrations
                 column: "DocumentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_ClientId",
+                table: "Orders",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_DocumentId",
                 table: "Orders",
                 column: "DocumentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_ImplementerId",
+                table: "Orders",
+                column: "ImplementerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -113,7 +167,13 @@ namespace LawFirmDatabaseImplement.Migrations
                 name: "Blanks");
 
             migrationBuilder.DropTable(
+                name: "Clients");
+
+            migrationBuilder.DropTable(
                 name: "Documents");
+
+            migrationBuilder.DropTable(
+                name: "Implementers");
         }
     }
 }

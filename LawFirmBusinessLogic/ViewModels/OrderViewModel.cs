@@ -20,6 +20,9 @@ namespace LawFirmBusinessLogic.ViewModels
         [DisplayName("Клиент")]
         public string ClientFIO { get; set; }
         [DataMember]
+        [DisplayName("Исполнитель")]
+        public string ImplementerFIO { get; set; }
+        [DataMember]
         [DisplayName("Изделие")]
         public string DocumentName { get; set; }
         [DataMember]

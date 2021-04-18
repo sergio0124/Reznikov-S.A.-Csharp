@@ -1,4 +1,5 @@
 ﻿using LawFirmBusinessLogic.BindingModels;
+using LawFirmBusinessLogic.Enums;
 using LawFirmBusinessLogic.Interfaces;
 using LawFirmBusinessLogic.ViewModels;
 using LawFirmListImplement.Models;
@@ -42,7 +43,9 @@ namespace LawFirmFileImplement.Implements
 		   rec.DateCreate.Date == model.DateCreate.Date) ||
 			(model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate.Date
 		   >= model.DateFrom.Value.Date && rec.DateCreate.Date <= model.DateTo.Value.Date) ||
-			(model.ClientId.HasValue && rec.ClientId == model.ClientId))
+			(model.ClientId.HasValue && rec.ClientId == model.ClientId)
+			 || (model.Status.HasValue && model.Status == rec.Status && rec.Status == OrderStatus.Выполняется && model.ImplemeterId.HasValue && rec.ImplementerId == rec.ImplementerId)
+					|| (model.Status.HasValue && model.Status == rec.Status && rec.Status == OrderStatus.Принят)) 
 			.Select(CreateModel)
 			.ToList();
  }
@@ -121,7 +124,7 @@ namespace LawFirmFileImplement.Implements
 			order.DocumentId = model.DocumentId;
 			order.Sum = model.Sum;
 			order.Count = model.Count;
-			order.Status = model.Status;
+			order.Status = (OrderStatus)model.Status;
 			order.DateCreate = model.DateCreate;
 			order.DateImplement = model.DateImplement;
 			return order;
