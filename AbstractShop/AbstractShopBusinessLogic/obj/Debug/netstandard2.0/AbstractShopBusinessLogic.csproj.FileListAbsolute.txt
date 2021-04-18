@@ -1,9 +1,0 @@
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\bin\Debug\netstandard2.0\AbstractShopBusinessLogic.deps.json
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\bin\Debug\netstandard2.0\AbstractShopBusinessLogic.dll
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\bin\Debug\netstandard2.0\AbstractShopBusinessLogic.pdb
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\AbstractShopBusinessLogic.csprojAssemblyReference.cache
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\AbstractShopBusinessLogic.AssemblyInfoInputs.cache
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\AbstractShopBusinessLogic.AssemblyInfo.cs
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\AbstractShopBusinessLogic.csproj.CoreCompileInputs.cache
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\AbstractShopBusinessLogic.dll
-C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopBusinessLogic\obj\Debug\netstandard2.0\AbstractShopBusinessLogic.pdb
