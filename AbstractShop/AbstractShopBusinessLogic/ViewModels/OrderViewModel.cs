@@ -10,8 +10,8 @@ namespace LawFirmBusinessLogic.ViewModels
     {
         public int Id { get; set; }
         public int DocumentId { get; set; }
-        [DisplayName("Изделие")]
-        public string DocumentName { get; set; }
+        [DisplayName("Название документа")]
+        public string DocumentName { set; get; }
         [DisplayName("Количество")]
         public int Count { get; set; }
         [DisplayName("Сумма")]

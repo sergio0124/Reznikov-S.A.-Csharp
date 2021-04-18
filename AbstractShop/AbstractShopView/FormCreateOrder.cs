@@ -87,11 +87,13 @@ namespace LawFirmView
             {
                 CalcSum();
                 _logicO.CreateOrder(new CreateOrderBindingModel
+
                 {                   
                     Sum = Convert.ToInt32(textBoxSum.Text),
                     DocumentId = Convert.ToInt32(comboBoxDocument.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text)
                 }) ;
+
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

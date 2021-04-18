@@ -143,7 +143,5 @@ namespace LawFirmFileImplement.Implements
 				DateImplement = order.DateImplement
 			};
 		}
-
-
 	}
 }

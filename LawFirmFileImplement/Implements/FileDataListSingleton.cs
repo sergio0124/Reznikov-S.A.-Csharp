@@ -72,6 +72,7 @@ namespace LawFirmFileImplement.Implements
                 }
             }
             return list;
+
         }
         private List<Blank> LoadBlanks()
         {
