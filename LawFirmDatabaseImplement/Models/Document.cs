@@ -14,8 +14,8 @@ namespace LawFirmDatabaseImplement.Models
         [Required]
         public decimal Price { set; get; }
         [ForeignKey("DocumentId")]
-        public virtual List<DocumentBlank> DocumentBlanks { get; set; }
+        public List<DocumentBlank> DocumentBlanks { get; set; }
         [ForeignKey("DocumentId")]
-        public virtual List<Order> Order { get; set; }
+        public List<Order> Order { get; set; }
     }
 }

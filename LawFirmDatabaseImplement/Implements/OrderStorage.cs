@@ -50,7 +50,7 @@ namespace LawFirmDatabaseImplement.Implements
                     DateCreate=order.DateCreate,
                     DateImplement=order.DateImplement,
                     Sum=order.Sum,
-                    DocumentName = order.Document.DocumentName,
+                    DocumentName = order.Document?.DocumentName,
                     DocumentId =order.DocumentId                   
                 } :
                null;
@@ -67,7 +67,6 @@ namespace LawFirmDatabaseImplement.Implements
             {
                 return context.Orders
                .Where(rec => rec.Id==model.Id)
-               .ToList()
                .Select(rec => new OrderViewModel
                {
                    Id = rec.Id,
@@ -88,7 +87,6 @@ namespace LawFirmDatabaseImplement.Implements
             using (var context = new LawFirmDatabase())
             {
                 return context.Orders
-               .ToList()
                .Select(rec => new OrderViewModel
                {
                    Id = rec.Id,

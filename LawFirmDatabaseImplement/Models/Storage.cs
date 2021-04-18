@@ -6,15 +6,16 @@ using System.Text;
 
 namespace LawFirmDatabaseImplement.Models
 {
-    public class Blank
+    public class Storage
     {
         public int Id { get; set; }
         [Required]
-        public string BlankName { get; set; }
-        [ForeignKey("BlankId")]
-        public List<DocumentBlank> DocumentBlanks { get; set; }
-        [ForeignKey("BlankId")]
+        public string StorageName { get; set; }
+        [Required]
+        public string StorageManager { get; set; }
+        [Required]
+        public DateTime DateCreate { get; set; }
+        [ForeignKey("StorageId")]
         public List<StorageBlank> StorageBlanks { get; set; }
-
     }
 }

@@ -57,10 +57,12 @@ namespace LawFirmBusinessLogic.BusinessLogic
             {
                 throw new Exception("Заказ не в статусе \"Принят\"");
             }
-            if (!_storageStorage.TakeFromStorage(_documentStorage.GetElement(new DocumentBindingModel { Id = order.DocumentId }).DocumentBlanks, order.Count))
+            var document = _documentStorage.GetElement(new DocumentBindingModel
             {
-                throw new Exception("Недостаточно бланков для заказа");
-            }
+                Id = order.DocumentId
+            });
+
+            _storageStorage.CheckBlanks(document, order.Count);
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
