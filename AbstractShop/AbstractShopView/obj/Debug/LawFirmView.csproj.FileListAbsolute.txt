@@ -191,3 +191,4 @@ C:\Users\Mvideo\Desktop\4 семестр\Технологии программи
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\AbstractShopView.FormClient.resources
 C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\AbstractShopView.FormClients.resources
+C:\Users\Mvideo\Desktop\4 семестр\Технологии программирования\Reznikov-S.A.-Csharp\AbstractShop\AbstractShopView\obj\Debug\AbstractShopView.FormImplementers.resources

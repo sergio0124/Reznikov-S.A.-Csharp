@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implements\ClientStorage.cs" />
+    <Compile Include="Implements\ImplementerStorage.cs" />
     <Compile Include="Models\Blank.cs" />
     <Compile Include="Implements\BlankStorage.cs" />
     <Compile Include="DataListSingleton.cs" />

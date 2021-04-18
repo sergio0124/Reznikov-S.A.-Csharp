@@ -101,12 +101,12 @@ namespace LawFirmListImplement.Implements
             blank.BlankName = model.BlankName;
             return blank;
         }
-        private BlankViewModel CreateModel(Blank component)
+        private BlankViewModel CreateModel(Blank blank)
         {
             return new BlankViewModel
             {
-                Id = component.Id,
-                BlankName = component.BlankName
+                Id = blank.Id,
+                BlankName = blank.BlankName
             };
         }
     }

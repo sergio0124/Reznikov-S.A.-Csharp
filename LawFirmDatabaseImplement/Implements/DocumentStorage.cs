@@ -148,16 +148,16 @@ namespace LawFirmDatabaseImplement.Implements
 		{
 			using (var context = new LawFirmDatabase())
 			{
-				var blank = context.Documents.FirstOrDefault(rec => rec.Id == model.Id);
+				var implementer = context.Documents.FirstOrDefault(rec => rec.Id == model.Id);
 
 
-				if (blank == null)
+				if (implementer == null)
 				{
 					throw new Exception("Материал не найден");
 				}
 
 
-				context.Documents.Remove(blank);
+				context.Documents.Remove(implementer);
 				context.SaveChanges();
 			}
 		}

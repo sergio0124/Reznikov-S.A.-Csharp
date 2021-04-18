@@ -32,7 +32,7 @@ namespace LawFirmBusinessLogic.BindingModels
         [DataMember]
         public int? ClientId { get; set; }
         [DataMember]
-        public int? ImplemeterId { set; get; }
+        public int? ImplementerId { set; get; }
         [DataMember]
         public bool? FreeOrders { set; get; }
     }

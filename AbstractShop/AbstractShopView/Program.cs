@@ -31,6 +31,8 @@ namespace LawFirmView
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<IClientStorage, ClientStorage>(new
            HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IImplementerStorage, ImplementerStorage>(new
+           HierarchicalLifetimeManager());
             currentContainer.RegisterType<BlankLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<ClientLogic>(new

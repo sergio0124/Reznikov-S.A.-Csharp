@@ -39,10 +39,16 @@ namespace LawFirmListImplement.Implements
             List<OrderViewModel> result = new List<OrderViewModel>();
             foreach (var order in source.Orders)
             {
-                if (order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo ||
-                    order.ClientId == model.ClientId
-                    || (model.Status.HasValue && model.Status==order.Status && order.Status == OrderStatus.Выполняется && model.ImplemeterId.HasValue && order.ImplementerId==order.ImplementerId)
-                    || (model.Status.HasValue && model.Status == order.Status && order.Status == OrderStatus.Принят))
+                if ((!model.DateFrom.HasValue && !model.DateTo.HasValue &&
+order.DateCreate.Date == model.DateCreate.Date) ||
+ (model.DateFrom.HasValue && model.DateTo.HasValue &&
+order.DateCreate.Date >= model.DateFrom.Value.Date && order.DateCreate.Date <=
+model.DateTo.Value.Date) ||
+ (model.ClientId.HasValue && order.ClientId == model.ClientId) ||
+(model.FreeOrders.HasValue && model.FreeOrders.Value && order.Status ==
+OrderStatus.Принят) ||
+ (model.ImplementerId.HasValue && order.ImplementerId ==
+model.ImplementerId && order.Status == OrderStatus.Выполняется))
                 {
                     result.Add(CreateModel(order));
                 }
@@ -122,17 +128,20 @@ namespace LawFirmListImplement.Implements
             order.Status = (OrderStatus)model.Status;
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
-            order.ImplementerId = model.ImplemeterId;
+            order.ImplementerId = model.ImplementerId;
             return order;
         }
 
         private OrderViewModel CreateModel(Order order)
         {
+            string FIO = order.ImplementerId.HasValue ? source.Implementers.FirstOrDefault(rec => rec.Id == order.ImplementerId).ImplementerFIO : string.Empty;
             return new OrderViewModel
             {
                 Id = order.Id,
                 DocumentId = order.DocumentId,
                 ClientId = (int)order.ClientId,
+                ImplementerId= (int)order.ImplementerId,
+                ImplementerFIO = FIO,
                 Sum = order.Sum,
                 Count = order.Count,
                 Status = order.Status,

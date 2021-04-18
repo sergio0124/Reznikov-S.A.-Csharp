@@ -9,22 +9,22 @@ using System.Text;
 
 namespace LawFirmDatabaseImplement.Implements
 {
-    public class BlankStorage:IBlankStorage
+    public class ImplementerStorage: IImplementerStorage
     {
-        public List<BlankViewModel> GetFullList()
+        public List<ImplementerViewModel> GetFullList()
         {
             using (var context = new LawFirmDatabase())
             {
-                return context.Blanks
-                .Select(rec => new BlankViewModel
+                return context.Implementers
+                .Select(rec => new ImplementerViewModel
                 {
                     Id = rec.Id,
-                    BlankName = rec.BlankName
+                    ImplementerFIO = rec.ImplementerFIO
                 })
                .ToList();
             }
         }
-        public List<BlankViewModel> GetFilteredList(BlankBindingModel model)
+        public List<ImplementerViewModel> GetFilteredList(ImplementerBindingModel model)
         {
             if (model == null)
             {
@@ -32,17 +32,17 @@ namespace LawFirmDatabaseImplement.Implements
             }
             using (var context = new LawFirmDatabase())
             {
-                return context.Blanks
-                .Where(rec => rec.BlankName.Contains(model.BlankName))
-               .Select(rec => new BlankViewModel
+                return context.Implementers
+                .Where(rec => rec.ImplementerFIO.Contains(model.ImplementerFIO))
+               .Select(rec => new ImplementerViewModel
                {
                    Id = rec.Id,
-                   BlankName = rec.BlankName
+                   ImplementerFIO = rec.ImplementerFIO
                })
                 .ToList();
             }
         }
-        public BlankViewModel GetElement(BlankBindingModel model)
+        public ImplementerViewModel GetElement(ImplementerBindingModel model)
         {
             if (model == null)
             {
@@ -50,49 +50,49 @@ namespace LawFirmDatabaseImplement.Implements
             }
             using (var context = new LawFirmDatabase())
             {
-                var implementer = context.Blanks
-                .FirstOrDefault(rec => rec.BlankName == model.BlankName ||
+                var implementer = context.Implementers
+                .FirstOrDefault(rec => rec.ImplementerFIO == model.ImplementerFIO ||
                rec.Id == model.Id);
                 return implementer != null ?
-                new BlankViewModel
+                new ImplementerViewModel
                 {
                     Id = implementer.Id,
-                    BlankName = implementer.BlankName
+                    ImplementerFIO = implementer.ImplementerFIO
                 } :
                null;
             }
         }
-        public void Insert(BlankBindingModel model)
+        public void Insert(ImplementerBindingModel model)
         {
             using (var context = new LawFirmDatabase())
             {
-                context.Blanks.Add(CreateModel(model, new Blank()));
+                context.Implementers.Add(CreateModel(model, new Implementer()));
                 context.SaveChanges();
             }
         }
-        public void Update(BlankBindingModel model)
+        public void Update(ImplementerBindingModel model)
         {
             using (var context = new LawFirmDatabase())
             {
-                var element = context.Blanks.FirstOrDefault(rec => rec.Id ==
+                var element = context.Implementers.FirstOrDefault(rec => rec.Id ==
                model.Id);
-                if (element == null) 
-            {
+                if (element == null)
+                {
                     throw new Exception("Элемент не найден");
                 }
                 CreateModel(model, element);
                 context.SaveChanges();
             }
         }
-        public void Delete(BlankBindingModel model)
+        public void Delete(ImplementerBindingModel model)
         {
             using (var context = new LawFirmDatabase())
             {
-                Blank element = context.Blanks.FirstOrDefault(rec => rec.Id ==
+                Implementer element = context.Implementers.FirstOrDefault(rec => rec.Id ==
                model.Id);
                 if (element != null)
                 {
-                    context.Blanks.Remove(element);
+                    context.Implementers.Remove(element);
                     context.SaveChanges();
                 }
                 else
@@ -101,11 +101,10 @@ namespace LawFirmDatabaseImplement.Implements
                 }
             }
         }
-        private Blank CreateModel(BlankBindingModel model, Blank implementer)
+        private Implementer CreateModel(ImplementerBindingModel model, Implementer implementer)
         {
-            implementer.BlankName = model.BlankName;
+            implementer.ImplementerFIO = model.ImplementerFIO;
             return implementer;
         }
-
     }
 }
