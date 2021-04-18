@@ -16,16 +16,18 @@ namespace LawFirmFileImplement.Implements
         private readonly string BlankFileName = "Blank.xml";
         private readonly string OrderFileName = "Order.xml";
         private readonly string DocumentFileName = "Document.xml";
+        private readonly string StorageFileName = "Storage.xml";
         public List<Blank> Blanks { get; set; }
         public List<Order> Orders { get; set; }
         public List<Document> Documents { get; set; }
-        public object Blank { get; internal set; }
+        public List<Storage> Storages { get; set; }
 
         private FileDataListSingleton()
         {
             Blanks = LoadBlanks();
             Orders = LoadOrders();
             Documents = LoadDocuments();
+            Storages = LoadStorage();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -40,6 +42,36 @@ namespace LawFirmFileImplement.Implements
             SaveBlanks();
             SaveOrders();
             SaveDocuments();
+            SaveStorages();
+        }
+        private List<Storage> LoadStorage()
+        {
+            var list = new List<Storage>();
+            if (File.Exists(StorageFileName))
+            {
+                XDocument xDocument = XDocument.Load(StorageFileName);
+                var xElements = xDocument.Root.Elements("Storage").ToList();
+
+                foreach (var storage in xElements)
+                {
+                    var storageBlanks = new Dictionary<int, int>();
+
+                    foreach (var material in storage.Element("StorageBlanks").Elements("StorageBlank").ToList())
+                    {
+                        storageBlanks.Add(Convert.ToInt32(material.Element("Key").Value), Convert.ToInt32(material.Element("Value").Value));
+                    }
+
+                    list.Add(new Storage
+                    {
+                        Id = Convert.ToInt32(storage.Attribute("Id").Value),
+                        StorageName = storage.Element("StorageName").Value,
+                        StorageManager = storage.Element("StorageManager").Value,
+                        DateCreate = Convert.ToDateTime(storage.Element("DateCreate").Value),
+                        StorageBlanks = storageBlanks
+                    });
+                }
+            }
+            return list;
         }
         private List<Blank> LoadBlanks()
         {
@@ -70,7 +102,7 @@ namespace LawFirmFileImplement.Implements
 
                 foreach (var elem in xElements)
                 {
-                    OrderStatus status=(OrderStatus)0;
+                    OrderStatus status = (OrderStatus)0;
                     switch ((elem.Element("Status").Value))
                     {
                         case "Принят":
@@ -86,16 +118,21 @@ namespace LawFirmFileImplement.Implements
                             status = (OrderStatus)3;
                             break;
                     }
-                    list.Add(new Order
+                    Order order = new Order
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        Sum = Convert.ToInt32(elem.Element("Sum").Value),
                         DocumentId = Convert.ToInt32(elem.Element("DocumentId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
-                        DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
-                        DateImplement = Convert.ToDateTime(elem.Element("DateImplement").Value),                      
-                        Status = status
-                    });
+                        Sum = Convert.ToDecimal(elem.Element("Sum").Value),
+                        Status = status,
+                        DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value)
+                    };
+
+                    if (!string.IsNullOrEmpty(elem.Element("DateImplement").Value))
+                    {
+                        order.DateImplement = Convert.ToDateTime(elem.Element("DateImplement").Value);
+                    }
+                    list.Add(order);
                 }
             }
             return list;
@@ -186,6 +223,31 @@ namespace LawFirmFileImplement.Implements
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(DocumentFileName);
+            }
+        }
+        private void SaveStorages()
+        {
+            if (Storages != null)
+            {
+                var xElement = new XElement("Storages");
+                foreach (var storage in Storages)
+                {
+                    var blankElement = new XElement("StorageBlanks");
+                    foreach (var blank in storage.StorageBlanks)
+                    {
+                        blankElement.Add(new XElement("StorageBlank",
+                        new XElement("Key", blank.Key),
+                        new XElement("Value", blank.Value)));
+                    }
+                    xElement.Add(new XElement("Storage",
+                     new XAttribute("Id", storage.Id),
+                     new XElement("StorageManager", storage.StorageManager),
+                     new XElement("StorageName", storage.StorageName),
+                     new XElement("DateCreate", storage.DateCreate),
+                     blankElement));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(StorageFileName);
             }
         }
     }

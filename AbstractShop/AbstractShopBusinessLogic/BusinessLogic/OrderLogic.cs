@@ -11,8 +11,12 @@ namespace LawFirmBusinessLogic.BusinessLogic
     public class OrderLogic
     {
         private readonly IOrderStorage _orderStorage;
-        public OrderLogic(IOrderStorage orderStorage)
+        private readonly IStorageStorage _storageStorage;
+        private readonly IDocumentStorage _documentStorage;
+        public OrderLogic(IOrderStorage orderStorage, IDocumentStorage documentStorage, IStorageStorage storageStorage)
         {
+            _storageStorage = storageStorage;
+            _documentStorage = documentStorage;
             _orderStorage = orderStorage;
         }
         public List<OrderViewModel> Read(OrderBindingModel model)
@@ -52,6 +56,10 @@ namespace LawFirmBusinessLogic.BusinessLogic
             if (order.Status != OrderStatus.Принят)
             {
                 throw new Exception("Заказ не в статусе \"Принят\"");
+            }
+            if (!_storageStorage.TakeFromStorage(_documentStorage.GetElement(new DocumentBindingModel { Id = order.DocumentId }).DocumentBlanks, order.Count))
+            {
+                throw new Exception("Недостаточно бланков для заказа");
             }
             _orderStorage.Update(new OrderBindingModel
             {
@@ -115,5 +123,6 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 Status = OrderStatus.Оплачен
             });
         }
+        
     }
 }
