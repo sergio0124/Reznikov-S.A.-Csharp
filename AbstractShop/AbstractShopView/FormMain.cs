@@ -13,12 +13,13 @@ namespace LawFirmView
         private readonly OrderLogic _orderLogic;
         private readonly ReportLogic _reportLogic;
         private readonly WorkModeling workModeling;
-        public FormMain(OrderLogic orderLogic, ReportLogic reportLogic)
+        public FormMain(OrderLogic orderLogic, ReportLogic reportLogic,WorkModeling workModeling)
+
         {
             InitializeComponent();
             this._orderLogic = orderLogic;
             this._reportLogic = reportLogic;
-            workModeling = Container.Resolve<WorkModeling>();
+            this.workModeling = workModeling;
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,7 @@ namespace LawFirmView
                     dataGridView.Columns[0].Visible = false;
                     dataGridView.Columns[1].Visible = false;
                     dataGridView.Columns[2].Visible = false;
+                    dataGridView.Columns[3].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -160,6 +162,7 @@ namespace LawFirmView
         private void запускРаботToolStripMenuItem_Click(object sender, EventArgs e)
         {
             workModeling.DoWork();
+            LoadData();
         }
 
         private void исполнителиToolStripMenuItem_Click(object sender, EventArgs e)

@@ -16,24 +16,33 @@ namespace LawFirmBusinessLogic.BindingModels
         [DataMember]
         public int DocumentId { get; set; }
         [DataMember]
+        public int? ClientId { get; set; }
+
+        [DataMember]
+        public int? ImplementerId { get; set; }
+
+        [DataMember]
         public int Count { get; set; }
+
         [DataMember]
         public decimal Sum { get; set; }
+
         [DataMember]
         public OrderStatus? Status { get; set; }
+
         [DataMember]
         public DateTime DateCreate { get; set; }
+
         [DataMember]
         public DateTime? DateImplement { get; set; }
+
         [DataMember]
         public DateTime? DateFrom { get; set; }
+
         [DataMember]
         public DateTime? DateTo { get; set; }
+
         [DataMember]
-        public int? ClientId { get; set; }
-        [DataMember]
-        public int? ImplementerId { set; get; }
-        [DataMember]
-        public bool? FreeOrders { set; get; }
+        public bool? FreeOrders { get; set; }
     }
 }

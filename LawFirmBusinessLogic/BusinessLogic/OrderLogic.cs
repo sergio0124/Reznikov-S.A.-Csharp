@@ -96,6 +96,7 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 Id = order.Id,
                 Sum = order.Sum,
                 DocumentId = order.DocumentId,
+                ImplementerId=order.ImplementerId,
                 ClientId = order.ClientId,
                 Count = order.Count,
                 DateCreate = order.DateCreate,

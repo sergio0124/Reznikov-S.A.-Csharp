@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Text;
 
 namespace LawFirmBusinessLogic.BusinessLogic
 {
@@ -63,32 +62,33 @@ namespace LawFirmBusinessLogic.BusinessLogic
                 Thread.Sleep(implementer.PauseTime);
             }
             await Task.Run(() =>
-        {
-            foreach (var order in orders)
             {
-                // пытаемся назначить заказ на исполнителя
-                try
+                foreach (var order in orders)
                 {
-                    _orderLogic.TakeOrderInWork(new ChangeStatusBindingModel
+                    // пытаемся назначить заказ на исполнителя
+                    try
                     {
-                        OrderId = order.Id,
-                        ImplementerId = implementer.Id
-                    });
-                    // делаем работу
-                    Thread.Sleep(implementer.WorkingTime * rnd.Next(1, 5) *
-                    order.Count);
-                    _orderLogic.FinishOrder(new ChangeStatusBindingModel
-                    {
-                        OrderId =
-                   order.Id
-                    });
-                    // отдыхаем
-                    Thread.Sleep(implementer.PauseTime);
+                        _orderLogic.TakeOrderInWork(new ChangeStatusBindingModel
+                        {
+                            OrderId = order.Id,
+                            ImplementerId = implementer.Id
+                        });
+                        // делаем работу
+                        Thread.Sleep(implementer.WorkingTime * rnd.Next(1, 5) *
+                        order.Count);
+                        _orderLogic.FinishOrder(new ChangeStatusBindingModel
+                        {
+                            OrderId =
+                       order.Id,
+                            ImplementerId=implementer.Id
+                        });
+                        // отдыхаем
+                        Thread.Sleep(implementer.PauseTime);
+                    }
+                    catch (Exception ex) { 
+                        string s = ""; }
                 }
-                catch (Exception) { }
-            }
-        });
+            });
         }
-
     }
 }

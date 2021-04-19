@@ -122,18 +122,12 @@ namespace LawFirmDatabaseImplement.Implements
 					try
 					{
 						var document = context.Documents.FirstOrDefault(rec => rec.Id == model.Id);
-
-
 						if (document == null)
 						{
-							throw new Exception("Подарок не найден");
+							throw new Exception("Документ не найден");
 						}
-
-
 						CreateModel(model, document, context);
 						context.SaveChanges();
-
-
 						transaction.Commit();
 					}
 					catch

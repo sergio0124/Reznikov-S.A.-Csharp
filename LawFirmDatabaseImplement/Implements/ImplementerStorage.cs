@@ -19,7 +19,9 @@ namespace LawFirmDatabaseImplement.Implements
                 .Select(rec => new ImplementerViewModel
                 {
                     Id = rec.Id,
-                    ImplementerFIO = rec.ImplementerFIO
+                    ImplementerFIO = rec.ImplementerFIO,
+                    WorkingTime=rec.WorkingTime,
+                    PauseTime=rec.PauseTime
                 })
                .ToList();
             }
@@ -37,7 +39,9 @@ namespace LawFirmDatabaseImplement.Implements
                .Select(rec => new ImplementerViewModel
                {
                    Id = rec.Id,
-                   ImplementerFIO = rec.ImplementerFIO
+                   ImplementerFIO = rec.ImplementerFIO,
+                   WorkingTime=rec.WorkingTime,
+                   PauseTime=rec.PauseTime
                })
                 .ToList();
             }
@@ -57,7 +61,9 @@ namespace LawFirmDatabaseImplement.Implements
                 new ImplementerViewModel
                 {
                     Id = implementer.Id,
-                    ImplementerFIO = implementer.ImplementerFIO
+                    ImplementerFIO = implementer.ImplementerFIO,
+                    WorkingTime=implementer.WorkingTime,
+                    PauseTime=implementer.PauseTime
                 } :
                null;
             }
@@ -104,6 +110,8 @@ namespace LawFirmDatabaseImplement.Implements
         private Implementer CreateModel(ImplementerBindingModel model, Implementer implementer)
         {
             implementer.ImplementerFIO = model.ImplementerFIO;
+            implementer.PauseTime = model.PauseTime;
+            implementer.WorkingTime = model.WorkingTime;
             return implementer;
         }
     }

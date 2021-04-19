@@ -57,15 +57,7 @@ namespace AbstractShopView
         }
         private void buttonUpd_Click(object sender, EventArgs e)
         {
-            if (dataGridView.SelectedRows.Count == 1)
-            {
-                var form = Container.Resolve<FormImplementer>();
-                form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
-            }
+            LoadData();
         }
         private void buttonDel_Click(object sender, EventArgs e)
         {
@@ -92,7 +84,15 @@ namespace AbstractShopView
 
         private void buttonRef_Click(object sender, EventArgs e)
         {
-            LoadData();
+            if (dataGridView.SelectedRows.Count == 1)
+            {
+                var form = Container.Resolve<FormImplementer>();
+                form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
